@@ -1,0 +1,13 @@
+{
+  "name": "usb-c-soft-network (devcontainer)",
+  "dockerFile": "Dockerfile",
+  "context": "..",
+  "workspaceFolder": "/workspaces/usb-c-soft-network",
+  "runArgs": ["--privileged"],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": ["ms-vscode.cpptools", "ms-vscode.cmake-tools", "ms-python.python"],
+  "postCreateCommand": "sudo /usr/local/bin/setup-oneapi.sh || true",
+  "remoteUser": "dev"
+}
