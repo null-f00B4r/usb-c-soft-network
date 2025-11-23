@@ -8,6 +8,6 @@
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "extensions": ["ms-vscode.cpptools", "ms-vscode.cmake-tools", "ms-python.python"],
-  "postCreateCommand": "sudo /usr/local/bin/setup-oneapi.sh || true",
+  "postCreateCommand": "sudo /usr/local/bin/setup-oneapi.sh || true && make setup-scripts || true",
   "remoteUser": "dev"
 }

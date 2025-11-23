@@ -48,3 +48,9 @@ cmake -S . -B build -DTEST_HARDWARE=ON
 cmake --build build
 ctest --test-dir build
 ```
+
+If you get script-permission issues, run:
+```bash
+make setup-scripts
+```
+
