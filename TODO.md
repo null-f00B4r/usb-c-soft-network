@@ -2,49 +2,52 @@
 
 This file outlines recommended milestones and detailed tasks to help contributors and agents work on the project without prior deep domain knowledge. Each milestone includes completion criteria and test steps.
 
-## Milestone 1 — Repository Bootstrapping (Priority: High)
+## Milestone 1 — Repository Bootstrapping (Priority: High) ✅ COMPLETED
 Objective: Make the repo buildable in a container with a minimal runnable example.
 
 Tasks:
-- [ ] Add CMake build skeleton (CMakeLists.txt) and a placeholder entrypoint in `src/main.c` or `src/main.cpp`.
+- [x] Add CMake build skeleton (CMakeLists.txt) and a placeholder entrypoint in `src/main.c` or `src/main.cpp`.
   - Success: `./scripts/build.sh` completes without fatal CMake errors inside the devcontainer.
   - Test: Build in the devcontainer with `docker build -f .devcontainer/Dockerfile -t usb-c-soft-network-ci:latest .` and run `docker run --rm usb-c-soft-network-ci:latest ./scripts/build.sh`.
-- [ ] Add `scripts/build.sh` and `scripts/host_build.sh` to support building inside container and on host.
+- [x] Add `scripts/build.sh` and `scripts/host_build.sh` to support building inside container and on host.
   - Success: Build scripts detect Intel compilers and provide friendly fallbacks.
   - Test: Run `./scripts/build.sh` in devcontainer; run `SKIP_COMPILER_CHECK=1 ./scripts/host_build.sh` on host.
 
-## Milestone 2 — Devcontainer + OneAPI (Priority: High)
+## Milestone 2 — Devcontainer + OneAPI (Priority: High) ✅ COMPLETED
 Objective: Add devcontainer and oneAPI installation workflow so developers can start quickly.
 
 Tasks:
-- [ ] Add `.devcontainer/Dockerfile` and `.devcontainer/devcontainer.json`.
+- [x] Add `.devcontainer/Dockerfile` and `.devcontainer/devcontainer.json`.
   - Success: VS Code can reopen the workspace in the devcontainer without human intervention.
   - Test: Use `Remote-Containers: Reopen in Container` or `docker build` step in CI.
-- [ ] Add setup script to install Intel oneAPI compilers.
+- [x] Add setup script to install Intel oneAPI compilers.
   - Success: `icx --version` and `icpx --version` return valid output inside the container.
   - Test: Run `sudo /usr/local/bin/setup-oneapi.sh` inside devcontainer and verify version output.
 
-## Milestone 3 — CI and Gated Hardware Tests (Priority: High)
+## Milestone 3 — CI and Gated Hardware Tests (Priority: High) ✅ COMPLETED
 Objective: Add CI pipeline that builds in the devcontainer and gates hardware tests behind flags and labels.
 
 Tasks:
-- [ ] Add GitHub Action to build in the devcontainer.
+- [x] Add GitHub Action to build in the devcontainer.
   - Success: Build job completes and produces built artifacts on push.
   - Test: Confirm `./scripts/build.sh` executes successfully in the CI image.
-- [ ] Add a gated hardware testing job that runs only when a `hardware-tests` label is set or `workflow_dispatch` input `run_hardware_tests=true`.
+- [x] Add a gated hardware testing job that runs only when a `hardware-tests` label is set or `workflow_dispatch` input `run_hardware_tests=true`.
   - Success: Job doesn't run by default; it runs when triggered and uses a privileged Docker run.
   - Test: Trigger a workflow dispatch with `run_hardware_tests: 'true'` and confirm hardware job runs.
 
-## Milestone 4 — Hardware Passthrough Tools and Tests (Priority: Medium)
+## Milestone 4 — Hardware Passthrough Tools and Tests (Priority: Medium) ✅ COMPLETED
 Objective: Create safe tooling for hardware passthrough, and small tests that can be run with hardware connected.
 
 Tasks:
-- [ ] Add `scripts/find-usb-c-ports.sh` to discover /sys/class/typec and `lsusb` outputs.
+- [x] Add `scripts/find-usb-c-ports.sh` to discover /sys/class/typec and `lsusb` outputs.
   - Success: Script lists candidate devices and prints a sample Docker passthrough command.
   - Test: Run the script on a machine with Type-C ports.
-- [ ] Add hardware-integration tests that are gated behind `TEST_HARDWARE=ON` in CMake.
+- [x] Add hardware-integration tests that are gated behind `TEST_HARDWARE=ON` in CMake.
   - Success: CMake variable controls tests compiled with `-DTEST_HARDWARE=ON`.
   - Test: `cmake -DTEST_HARDWARE=ON` triggers hardware tests being compiled or additional tests being executed.
+- [x] Add `scripts/run-vm-tests.sh` for QEMU-based testing with USB passthrough.
+  - Success: Script provides safe VM-based testing environment.
+  - Test: Run with USB_BUSDEV set to test VM integration.
 
 ## Milestone 5 — Documentation and Examples (Priority: Medium)
 Objective: Make it easy for maintainers and contributors to understand and extend the project.

@@ -18,8 +18,13 @@ if(NOT CMAKE_CXX_COMPILER)
   message(STATUS "C++ compiler not explicitly set; using system default")
 endif()
 
-if(NOT (CMAKE_C_COMPILER_ID MATCHES "Intel" OR CMAKE_C_COMPILER_ID MATCHES "IntelLLVM"))
-  message(FATAL_ERROR "This project is configured to be built using Intel oneAPI compilers (icx/icpx). Found ${CMAKE_C_COMPILER_ID}. Please install Intel oneAPI and configure CMake accordingly.")
+# Allow override via environment variable for testing/development
+if(NOT DEFINED ENV{SKIP_COMPILER_CHECK})
+  if(NOT (CMAKE_C_COMPILER_ID MATCHES "Intel" OR CMAKE_C_COMPILER_ID MATCHES "IntelLLVM"))
+    message(FATAL_ERROR "This project is configured to be built using Intel oneAPI compilers (icx/icpx). Found ${CMAKE_C_COMPILER_ID}. Please install Intel oneAPI and configure CMake accordingly, or set SKIP_COMPILER_CHECK=1 to bypass this check.")
+  endif()
+else()
+  message(WARNING "Compiler check skipped (SKIP_COMPILER_CHECK set). Using ${CMAKE_C_COMPILER_ID}. For production builds, use Intel oneAPI compilers.")
 endif()
 
 add_compile_options($<$<C_COMPILER_ID:Intel>:-std=c23>)
