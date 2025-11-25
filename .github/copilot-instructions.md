@@ -9,10 +9,19 @@ What to inspect first
 - Look for build/config files: `CMakeLists.txt`, `Makefile`, `configure`, `setup.py`, `pyproject.toml`, or `requirements.txt`.
 - Look for runtime and system-integration code: `src/`, `include/`, `lib/`, `scripts/`, `tests/`, and `docs/` directories.
 
+**CRITICAL: This project does NOT use USB gadget mode**
+- Architecture: Host-to-host USB-C networking using Linux Type-C subsystem
+- Detection method: `/sys/class/typec/` sysfs interface (NOT libusb gadget enumeration)
+- USB gadget mode (`g_ether`, `usb_gadget`, configfs) is NOT required for core functionality
+- The examples (`simple_usb_net.c`) reference gadget mode for demonstration purposes only
+- Primary use case: Direct peer-to-peer USB-C communication between two Linux hosts
+
 Key development patterns & conventions for this codebase
 - C for low-level USB hardware interaction and network stack; C++ for higher-level abstractions. Python is used for tests and automation (per README).
 - Files expected: low-level code often in `src/usb` or `src/driver` with headers in `include/`.
-- Network-layer handling should manifest in code managing packet framing and IP-over-USB; search for keywords like `usbnet`, `g_ether`, `libusb`, `ioctl`, `tun`, `tap`, `netlink`, and `ifconfig`.
+- Network-layer handling should manifest in code managing packet framing and IP-over-USB; search for keywords like `usbnet`, `libusb`, `ioctl`, `tun`, `tap`, `netlink`, and `ifconfig`.
+- **Host-to-host architecture**: Uses Type-C subsystem (`/sys/class/typec/`) for port detection and connection management
+- **NOT gadget-based**: Keywords like `g_ether`, `usb_gadget`, `configfs` are used in examples for demo purposes but are NOT part of the core architecture
 - Prefer small, targeted changes that preserve Linux-first behavior and avoid introducing OS-specific features without compatibility checks.
 
 Safe build & debug workflows (Agent guidance)
@@ -33,10 +42,12 @@ Safe build & debug workflows (Agent guidance)
 - Hardware safety: avoid running arbitrary code as root/mounting devices on the host system. Prefer using a VM/QEMU or container with USB passthrough or emulated devices for local testing. If a change requires host USB access, explicitly call it out in the PR and provide a reproducible safe test plan.
 
 Search patterns that are highly relevant
-- Kernel or gadget integration: `g_ether`, `usbnet`, `gadget`, `usb-gadget`, `libusb`.
-- Networking pattern/stack: `tun`, `tap`, `netlink`, `ioctl`, `ethertype`, `arp`, `ip`, `ifconfig`, `tcpdump`.
-- Low-level I/O: `open()`, `read()`, `write()`, `ioctl(`, `/dev/usb`, `/dev/usb/*`, `/dev/tun`.
-- Packaging / build: `CMakeLists.txt`, `Makefile`, `configure`, `setup.py`, `requirements.txt`.
+- **Type-C subsystem (PRIMARY)**: `/sys/class/typec/`, `CONFIG_TYPEC`, `typec_ucsi`, `ucsi_acpi`, `typec` kernel module
+- **Host-to-host USB-C**: `libusb`, direct USB communication patterns, Type-C port detection
+- **Networking stack**: `tun`, `tap`, `netlink`, `ioctl`, `ethertype`, `arp`, `ip`, `ifconfig`, `tcpdump`
+- **Low-level I/O**: `open()`, `read()`, `write()`, `ioctl(`, `/dev/bus/usb/`, `/sys/class/typec/`
+- **Gadget mode (examples only, NOT core)**: `g_ether`, `usbnet`, `gadget`, `usb_gadget`, `configfs` - these are used in demo examples but not in the core implementation
+- **Packaging / build**: `CMakeLists.txt`, `Makefile`, `configure`, `setup.py`, `requirements.txt`
 
 Testing & verification guidance
 - Look for existing `tests/` directory. If Python tests are present, use `pytest`.
@@ -98,6 +109,34 @@ Questions for maintainers/PR reviewers
 - The repo requires: `cmake_minimum_required(VERSION 4.1.2)`; C and C++ standards are 23.
 - The project is configured to be built with Intel oneAPI compilers by default. CMake checks the compiler at configure-time and will fail when the detected compiler is not Intel (icx/icpx / IntelLLVM).
 - Hardware integration tests are gated with the `TEST_HARDWARE` CMake option. Always leave this OFF by default unless running in a controlled environment.
+
+### Runtime Requirements (verified by check-system-requirements.sh)
+**Kernel Requirements (CRITICAL):**
+- Linux kernel 5.10+ with Type-C subsystem enabled
+- `CONFIG_TYPEC=m` or `CONFIG_TYPEC=y` - Type-C subsystem
+- `CONFIG_TYPEC_UCSI=m` - USB Type-C Connector System Software Interface (for most systems)
+- `CONFIG_UCSI_ACPI=m` - ACPI UCSI driver (common on x86/x64 systems)
+- Type-C kernel modules must be loadable: `typec`, `typec_ucsi`
+
+**Hardware Requirements:**
+- USB-C port(s) with data support (not charge-only)
+- Data-capable USB-C cable (not charge-only)
+- Type-C port manager exposed through `/sys/class/typec/portX`
+- Root/sudo privileges for hardware access
+
+**Build Requirements:**
+- CMake 4.1.2 or newer
+- C23 and C++23 compiler support
+- Intel oneAPI compilers (icx/icpx) - recommended
+  - Or GCC/Clang with `SKIP_COMPILER_CHECK=1` environment variable (development only)
+- libusb-1.0 development headers (`libusb-1.0-dev` on Debian/Ubuntu)
+- pkg-config tool
+
+**NOT Required:**
+- USB gadget mode support (this is NOT a gadget-mode project)
+- `g_ether` kernel module (used in examples for demo purposes only)
+- USB gadget configfs (not part of core architecture)
+- Specialized USB hardware or adapters
 
 ### Devcontainer & oneAPI
 - A devcontainer is provided at `.devcontainer/` with a `Dockerfile` (based on `debian:latest-slim`) that installs base build tools and includes `setup-oneapi.sh` to install Intel oneAPI compilers. Using the devcontainer is the recommended safe way to build or run tests.
