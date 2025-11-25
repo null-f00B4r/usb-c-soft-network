@@ -1,0 +1,7 @@
+/home/q/usb-c-soft-network/build/CMakeFiles/dummy.dir
+/home/q/usb-c-soft-network/build/CMakeFiles/edit_cache.dir
+/home/q/usb-c-soft-network/build/CMakeFiles/rebuild_cache.dir
+/home/q/usb-c-soft-network/build/CMakeFiles/list_install_components.dir
+/home/q/usb-c-soft-network/build/CMakeFiles/install.dir
+/home/q/usb-c-soft-network/build/CMakeFiles/install/local.dir
+/home/q/usb-c-soft-network/build/CMakeFiles/install/strip.dir

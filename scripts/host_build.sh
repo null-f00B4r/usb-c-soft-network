@@ -26,7 +26,15 @@ WARN
 fi
 
 mkdir -p ${BUILD_DIR}
-cmake -S . -B ${BUILD_DIR} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
+
+# Set Intel compilers if available
+CMAKE_EXTRA_FLAGS=""
+if command -v icx >/dev/null 2>&1 && command -v icpx >/dev/null 2>&1; then
+  echo "Using Intel oneAPI compilers (icx/icpx)"
+  CMAKE_EXTRA_FLAGS="-DCMAKE_C_COMPILER=icx -DCMAKE_CXX_COMPILER=icpx"
+fi
+
+cmake -S . -B ${BUILD_DIR} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${CMAKE_EXTRA_FLAGS}
 cmake --build ${BUILD_DIR} --parallel
 
 echo "Host build completed."
