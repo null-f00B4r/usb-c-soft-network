@@ -2638,8 +2638,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK"
-      binary: "/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK"
+      source: "/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p"
+      binary: "/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g -Rno-debug-disables-optimization"
@@ -2648,13 +2648,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK'
+        Change Dir: '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p'
         
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c2cde/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_c2cde.dir/build.make CMakeFiles/cmTC_c2cde.dir/build
-        gmake[1]: Entering directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK'
-        Building C object CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o
-        /opt/intel/oneapi/compiler/2025.3/bin/icx   -v -MD -MT CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-4.1/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a8b24/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a8b24.dir/build.make CMakeFiles/cmTC_a8b24.dir/build
+        gmake[1]: Entering directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p'
+        Building C object CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o
+        /opt/intel/oneapi/compiler/2025.3/bin/icx   -v -MD -MT CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-4.1/Modules/CMakeCCompilerABI.c
         Intel(R) oneAPI DPC++/C++ Compiler 2025.3.1 (2025.3.1.20251023)
         Target: x86_64-unknown-linux-gnu
         Thread model: posix
@@ -2665,7 +2665,7 @@ events:
         Candidate multilib: .;@m64
         Selected multilib: .;@m64
          (in-process)
-         "/opt/intel/oneapi/compiler/2025.3/bin/compiler/clang" -cc1 -triple x86_64-unknown-linux-gnu -O2 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -fveclib=SVML -faltmathlib=SVMLAltMathLibrary -mframe-pointer=none -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign,preserve-sign -ffp-contract=fast-honor-pragmas -fno-rounding-math -complex-range=promoted -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK -v -fcoverage-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK -fclang-abi-compat=17 -resource-dir /opt/intel/oneapi/compiler/2025.3/lib/clang/21 -dependency-file CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -sys-header-deps -I/opt/intel/oneapi/umf/1.0/include -I/opt/intel/oneapi/mkl/2025.3/include -I/opt/intel/oneapi/dev-utilities/2025.3/include -I/opt/intel/oneapi/ccl/2021.17/include -c-isystem /opt/intel/oneapi/umf/1.0/include -c-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -c-isystem /opt/intel/oneapi/pti/0.13/include -c-isystem /opt/intel/oneapi/mpi/2021.17/include -c-isystem /opt/intel/oneapi/mkl/2025.3/include -c-isystem /opt/intel/oneapi/ishmem/1.5/include -c-isystem /opt/intel/oneapi/ippcp/2025.3/include -c-isystem /opt/intel/oneapi/ipp/2022.3/include -c-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/umf/1.0/include -cxx-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -cxx-isystem /opt/intel/oneapi/pti/0.13/include -cxx-isystem /opt/intel/oneapi/mpi/2021.17/include -cxx-isystem /opt/intel/oneapi/mkl/2025.3/include -cxx-isystem /opt/intel/oneapi/ishmem/1.5/include -cxx-isystem /opt/intel/oneapi/ippcp/2025.3/include -cxx-isystem /opt/intel/oneapi/ipp/2022.3/include -cxx-isystem /opt/intel/oneapi/dpl/2022.10/include -cxx-isystem /opt/intel/oneapi/dpcpp-ct/2025.3/include -cxx-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include/dal -internal-isystem /opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/include -internal-isystem /opt/intel/oneapi/compiler/2025.3/lib/clang/21/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -vectorize-loops -vectorize-slp -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -fintel-libimf-allowed -o CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -x c /usr/local/share/cmake-4.1/Modules/CMakeCCompilerABI.c
+         "/opt/intel/oneapi/compiler/2025.3/bin/compiler/clang" -cc1 -triple x86_64-unknown-linux-gnu -O2 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -fveclib=SVML -faltmathlib=SVMLAltMathLibrary -mframe-pointer=none -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign,preserve-sign -ffp-contract=fast-honor-pragmas -fno-rounding-math -complex-range=promoted -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p -v -fcoverage-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p -fclang-abi-compat=17 -resource-dir /opt/intel/oneapi/compiler/2025.3/lib/clang/21 -dependency-file CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -sys-header-deps -I/opt/intel/oneapi/umf/1.0/include -I/opt/intel/oneapi/mkl/2025.3/include -I/opt/intel/oneapi/dev-utilities/2025.3/include -I/opt/intel/oneapi/ccl/2021.17/include -c-isystem /opt/intel/oneapi/umf/1.0/include -c-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -c-isystem /opt/intel/oneapi/pti/0.13/include -c-isystem /opt/intel/oneapi/mpi/2021.17/include -c-isystem /opt/intel/oneapi/mkl/2025.3/include -c-isystem /opt/intel/oneapi/ishmem/1.5/include -c-isystem /opt/intel/oneapi/ippcp/2025.3/include -c-isystem /opt/intel/oneapi/ipp/2022.3/include -c-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/umf/1.0/include -cxx-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -cxx-isystem /opt/intel/oneapi/pti/0.13/include -cxx-isystem /opt/intel/oneapi/mpi/2021.17/include -cxx-isystem /opt/intel/oneapi/mkl/2025.3/include -cxx-isystem /opt/intel/oneapi/ishmem/1.5/include -cxx-isystem /opt/intel/oneapi/ippcp/2025.3/include -cxx-isystem /opt/intel/oneapi/ipp/2022.3/include -cxx-isystem /opt/intel/oneapi/dpl/2022.10/include -cxx-isystem /opt/intel/oneapi/dpcpp-ct/2025.3/include -cxx-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include/dal -internal-isystem /opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/include -internal-isystem /opt/intel/oneapi/compiler/2025.3/lib/clang/21/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -vectorize-loops -vectorize-slp -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -fintel-libimf-allowed -o CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -x c /usr/local/share/cmake-4.1/Modules/CMakeCCompilerABI.c
         clang -cc1 version 21.1.1 based upon LLVM 21.1.1 default target x86_64-unknown-linux-gnu
         ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include"
         ignoring nonexistent directory "/include"
@@ -2692,8 +2692,8 @@ events:
          /usr/include/x86_64-linux-gnu
          /usr/include
         End of search list.
-        Linking C executable cmTC_c2cde
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2cde.dir/link.txt --verbose=1
+        Linking C executable cmTC_a8b24
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8b24.dir/link.txt --verbose=1
         Intel(R) oneAPI DPC++/C++ Compiler 2025.3.1 (2025.3.1.20251023)
         Target: x86_64-unknown-linux-gnu
         Thread model: posix
@@ -2703,9 +2703,9 @@ events:
         Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14
         Candidate multilib: .;@m64
         Selected multilib: .;@m64
-         "/usr/bin/ld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_c2cde /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/lib/clang/21/lib/x86_64-unknown-linux-gnu -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib64 -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tcm/1.4/lib -L/opt/intel/oneapi/umf/1.0/lib -L/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/pti/0.13/lib -L/opt/intel/oneapi/mpi/2021.17/lib -L/opt/intel/oneapi/mkl/2025.3/lib -L/opt/intel/oneapi/ishmem/1.5/lib -L/opt/intel/oneapi/ippcp/2025.3/lib/ -L/opt/intel/oneapi/ipp/2022.3/lib -L/opt/intel/oneapi/dnnl/2025.3/lib -L/opt/intel/oneapi/dal/2025.9/lib -L/opt/intel/oneapi/compiler/2025.3/lib -L/opt/intel/oneapi/ccl/2021.17/lib/ CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -Bstatic -limf -Bdynamic -lm -lgcc --as-needed -lgcc_s --no-as-needed -Bstatic -lirc -Bdynamic -ldl -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o
-        /opt/intel/oneapi/compiler/2025.3/bin/icx -v CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -o cmTC_c2cde
-        gmake[1]: Leaving directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK'
+         "/usr/bin/ld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_a8b24 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/lib/clang/21/lib/x86_64-unknown-linux-gnu -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib64 -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tcm/1.4/lib -L/opt/intel/oneapi/umf/1.0/lib -L/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/pti/0.13/lib -L/opt/intel/oneapi/mpi/2021.17/lib -L/opt/intel/oneapi/mkl/2025.3/lib -L/opt/intel/oneapi/ishmem/1.5/lib -L/opt/intel/oneapi/ippcp/2025.3/lib/ -L/opt/intel/oneapi/ipp/2022.3/lib -L/opt/intel/oneapi/dnnl/2025.3/lib -L/opt/intel/oneapi/dal/2025.9/lib -L/opt/intel/oneapi/compiler/2025.3/lib -L/opt/intel/oneapi/ccl/2021.17/lib/ CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -Bstatic -limf -Bdynamic -lm -lgcc --as-needed -lgcc_s --no-as-needed -Bstatic -lirc -Bdynamic -ldl -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+        /opt/intel/oneapi/compiler/2025.3/bin/icx -v CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -o cmTC_a8b24
+        gmake[1]: Leaving directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p'
         
       exitCode: 0
   -
@@ -2764,13 +2764,13 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK']
+        ignore line: [Change Dir: '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c2cde/fast]
-        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_c2cde.dir/build.make CMakeFiles/cmTC_c2cde.dir/build]
-        ignore line: [gmake[1]: Entering directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK']
-        ignore line: [Building C object CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/opt/intel/oneapi/compiler/2025.3/bin/icx   -v -MD -MT CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-4.1/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a8b24/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_a8b24.dir/build.make CMakeFiles/cmTC_a8b24.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p']
+        ignore line: [Building C object CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/opt/intel/oneapi/compiler/2025.3/bin/icx   -v -MD -MT CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -c /usr/local/share/cmake-4.1/Modules/CMakeCCompilerABI.c]
         ignore line: [Intel(R) oneAPI DPC++/C++ Compiler 2025.3.1 (2025.3.1.20251023)]
         ignore line: [Target: x86_64-unknown-linux-gnu]
         ignore line: [Thread model: posix]
@@ -2783,7 +2783,7 @@ events:
         ignore line: [Selected multilib: .]
         ignore line: [@m64]
         ignore line: [ (in-process)]
-        ignore line: [ "/opt/intel/oneapi/compiler/2025.3/bin/compiler/clang" -cc1 -triple x86_64-unknown-linux-gnu -O2 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -fveclib=SVML -faltmathlib=SVMLAltMathLibrary -mframe-pointer=none -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign preserve-sign -ffp-contract=fast-honor-pragmas -fno-rounding-math -complex-range=promoted -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK -v -fcoverage-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-qXbANK -fclang-abi-compat=17 -resource-dir /opt/intel/oneapi/compiler/2025.3/lib/clang/21 -dependency-file CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -sys-header-deps -I/opt/intel/oneapi/umf/1.0/include -I/opt/intel/oneapi/mkl/2025.3/include -I/opt/intel/oneapi/dev-utilities/2025.3/include -I/opt/intel/oneapi/ccl/2021.17/include -c-isystem /opt/intel/oneapi/umf/1.0/include -c-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -c-isystem /opt/intel/oneapi/pti/0.13/include -c-isystem /opt/intel/oneapi/mpi/2021.17/include -c-isystem /opt/intel/oneapi/mkl/2025.3/include -c-isystem /opt/intel/oneapi/ishmem/1.5/include -c-isystem /opt/intel/oneapi/ippcp/2025.3/include -c-isystem /opt/intel/oneapi/ipp/2022.3/include -c-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/umf/1.0/include -cxx-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -cxx-isystem /opt/intel/oneapi/pti/0.13/include -cxx-isystem /opt/intel/oneapi/mpi/2021.17/include -cxx-isystem /opt/intel/oneapi/mkl/2025.3/include -cxx-isystem /opt/intel/oneapi/ishmem/1.5/include -cxx-isystem /opt/intel/oneapi/ippcp/2025.3/include -cxx-isystem /opt/intel/oneapi/ipp/2022.3/include -cxx-isystem /opt/intel/oneapi/dpl/2022.10/include -cxx-isystem /opt/intel/oneapi/dpcpp-ct/2025.3/include -cxx-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include/dal -internal-isystem /opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/include -internal-isystem /opt/intel/oneapi/compiler/2025.3/lib/clang/21/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -vectorize-loops -vectorize-slp -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -fintel-libimf-allowed -o CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -x c /usr/local/share/cmake-4.1/Modules/CMakeCCompilerABI.c]
+        ignore line: [ "/opt/intel/oneapi/compiler/2025.3/bin/compiler/clang" -cc1 -triple x86_64-unknown-linux-gnu -O2 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -fveclib=SVML -faltmathlib=SVMLAltMathLibrary -mframe-pointer=none -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign preserve-sign -ffp-contract=fast-honor-pragmas -fno-rounding-math -complex-range=promoted -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p -v -fcoverage-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-RlQ29p -fclang-abi-compat=17 -resource-dir /opt/intel/oneapi/compiler/2025.3/lib/clang/21 -dependency-file CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -sys-header-deps -I/opt/intel/oneapi/umf/1.0/include -I/opt/intel/oneapi/mkl/2025.3/include -I/opt/intel/oneapi/dev-utilities/2025.3/include -I/opt/intel/oneapi/ccl/2021.17/include -c-isystem /opt/intel/oneapi/umf/1.0/include -c-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -c-isystem /opt/intel/oneapi/pti/0.13/include -c-isystem /opt/intel/oneapi/mpi/2021.17/include -c-isystem /opt/intel/oneapi/mkl/2025.3/include -c-isystem /opt/intel/oneapi/ishmem/1.5/include -c-isystem /opt/intel/oneapi/ippcp/2025.3/include -c-isystem /opt/intel/oneapi/ipp/2022.3/include -c-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/umf/1.0/include -cxx-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -cxx-isystem /opt/intel/oneapi/pti/0.13/include -cxx-isystem /opt/intel/oneapi/mpi/2021.17/include -cxx-isystem /opt/intel/oneapi/mkl/2025.3/include -cxx-isystem /opt/intel/oneapi/ishmem/1.5/include -cxx-isystem /opt/intel/oneapi/ippcp/2025.3/include -cxx-isystem /opt/intel/oneapi/ipp/2022.3/include -cxx-isystem /opt/intel/oneapi/dpl/2022.10/include -cxx-isystem /opt/intel/oneapi/dpcpp-ct/2025.3/include -cxx-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include/dal -internal-isystem /opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/include -internal-isystem /opt/intel/oneapi/compiler/2025.3/lib/clang/21/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -vectorize-loops -vectorize-slp -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -fintel-libimf-allowed -o CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -x c /usr/local/share/cmake-4.1/Modules/CMakeCCompilerABI.c]
         ignore line: [clang -cc1 version 21.1.1 based upon LLVM 21.1.1 default target x86_64-unknown-linux-gnu]
         ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include"]
         ignore line: [ignoring nonexistent directory "/include"]
@@ -2810,8 +2810,8 @@ events:
         ignore line: [ /usr/include/x86_64-linux-gnu]
         ignore line: [ /usr/include]
         ignore line: [End of search list.]
-        ignore line: [Linking C executable cmTC_c2cde]
-        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2cde.dir/link.txt --verbose=1]
+        ignore line: [Linking C executable cmTC_a8b24]
+        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8b24.dir/link.txt --verbose=1]
         ignore line: [Intel(R) oneAPI DPC++/C++ Compiler 2025.3.1 (2025.3.1.20251023)]
         ignore line: [Target: x86_64-unknown-linux-gnu]
         ignore line: [Thread model: posix]
@@ -2823,7 +2823,7 @@ events:
         ignore line: [@m64]
         ignore line: [Selected multilib: .]
         ignore line: [@m64]
-        link line: [ "/usr/bin/ld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_c2cde /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/lib/clang/21/lib/x86_64-unknown-linux-gnu -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib64 -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tcm/1.4/lib -L/opt/intel/oneapi/umf/1.0/lib -L/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/pti/0.13/lib -L/opt/intel/oneapi/mpi/2021.17/lib -L/opt/intel/oneapi/mkl/2025.3/lib -L/opt/intel/oneapi/ishmem/1.5/lib -L/opt/intel/oneapi/ippcp/2025.3/lib/ -L/opt/intel/oneapi/ipp/2022.3/lib -L/opt/intel/oneapi/dnnl/2025.3/lib -L/opt/intel/oneapi/dal/2025.9/lib -L/opt/intel/oneapi/compiler/2025.3/lib -L/opt/intel/oneapi/ccl/2021.17/lib/ CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -Bstatic -limf -Bdynamic -lm -lgcc --as-needed -lgcc_s --no-as-needed -Bstatic -lirc -Bdynamic -ldl -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+        link line: [ "/usr/bin/ld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_a8b24 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/lib/clang/21/lib/x86_64-unknown-linux-gnu -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib64 -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tcm/1.4/lib -L/opt/intel/oneapi/umf/1.0/lib -L/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/pti/0.13/lib -L/opt/intel/oneapi/mpi/2021.17/lib -L/opt/intel/oneapi/mkl/2025.3/lib -L/opt/intel/oneapi/ishmem/1.5/lib -L/opt/intel/oneapi/ippcp/2025.3/lib/ -L/opt/intel/oneapi/ipp/2022.3/lib -L/opt/intel/oneapi/dnnl/2025.3/lib -L/opt/intel/oneapi/dal/2025.9/lib -L/opt/intel/oneapi/compiler/2025.3/lib -L/opt/intel/oneapi/ccl/2021.17/lib/ CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -Bstatic -limf -Bdynamic -lm -lgcc --as-needed -lgcc_s --no-as-needed -Bstatic -lirc -Bdynamic -ldl -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
           arg [/usr/bin/ld] ==> ignore
           arg [--hash-style=gnu] ==> ignore
           arg [--eh-frame-hdr] ==> ignore
@@ -2832,7 +2832,7 @@ events:
           arg [-dynamic-linker] ==> ignore
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_c2cde] ==> ignore
+          arg [cmTC_a8b24] ==> ignore
           arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
           arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o]
@@ -2863,7 +2863,7 @@ events:
           arg [-L/opt/intel/oneapi/dal/2025.9/lib] ==> dir [/opt/intel/oneapi/dal/2025.9/lib]
           arg [-L/opt/intel/oneapi/compiler/2025.3/lib] ==> dir [/opt/intel/oneapi/compiler/2025.3/lib]
           arg [-L/opt/intel/oneapi/ccl/2021.17/lib/] ==> dir [/opt/intel/oneapi/ccl/2021.17/lib/]
-          arg [CMakeFiles/cmTC_c2cde.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_a8b24.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-Bstatic] ==> search static
           arg [-lsvml] ==> lib [svml]
           arg [-Bdynamic] ==> search dynamic
@@ -2949,8 +2949,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD"
-      binary: "/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD"
+      source: "/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY"
+      binary: "/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g -Rno-debug-disables-optimization"
@@ -2960,13 +2960,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD'
+        Change Dir: '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY'
         
-        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bd957/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_bd957.dir/build.make CMakeFiles/cmTC_bd957.dir/build
-        gmake[1]: Entering directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD'
-        Building CXX object CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o
-        /opt/intel/oneapi/compiler/2025.3/bin/icpx   -v -MD -MT CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bbcfa/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_bbcfa.dir/build.make CMakeFiles/cmTC_bbcfa.dir/build
+        gmake[1]: Entering directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY'
+        Building CXX object CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o
+        /opt/intel/oneapi/compiler/2025.3/bin/icpx   -v -MD -MT CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
         Intel(R) oneAPI DPC++/C++ Compiler 2025.3.1 (2025.3.1.20251023)
         Target: x86_64-unknown-linux-gnu
         Thread model: posix
@@ -2977,7 +2977,7 @@ events:
         Candidate multilib: .;@m64
         Selected multilib: .;@m64
          (in-process)
-         "/opt/intel/oneapi/compiler/2025.3/bin/compiler/clang" -cc1 -triple x86_64-unknown-linux-gnu -O2 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -fveclib=SVML -faltmathlib=SVMLAltMathLibrary -mframe-pointer=none -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign,preserve-sign -ffp-contract=fast-honor-pragmas -fno-rounding-math -complex-range=promoted -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD -v -fcoverage-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD -fclang-abi-compat=17 -resource-dir /opt/intel/oneapi/compiler/2025.3/lib/clang/21 -dependency-file CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -I/opt/intel/oneapi/umf/1.0/include -I/opt/intel/oneapi/mkl/2025.3/include -I/opt/intel/oneapi/dev-utilities/2025.3/include -I/opt/intel/oneapi/ccl/2021.17/include -c-isystem /opt/intel/oneapi/umf/1.0/include -c-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -c-isystem /opt/intel/oneapi/pti/0.13/include -c-isystem /opt/intel/oneapi/mpi/2021.17/include -c-isystem /opt/intel/oneapi/mkl/2025.3/include -c-isystem /opt/intel/oneapi/ishmem/1.5/include -c-isystem /opt/intel/oneapi/ippcp/2025.3/include -c-isystem /opt/intel/oneapi/ipp/2022.3/include -c-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/umf/1.0/include -cxx-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -cxx-isystem /opt/intel/oneapi/pti/0.13/include -cxx-isystem /opt/intel/oneapi/mpi/2021.17/include -cxx-isystem /opt/intel/oneapi/mkl/2025.3/include -cxx-isystem /opt/intel/oneapi/ishmem/1.5/include -cxx-isystem /opt/intel/oneapi/ippcp/2025.3/include -cxx-isystem /opt/intel/oneapi/ipp/2022.3/include -cxx-isystem /opt/intel/oneapi/dpl/2022.10/include -cxx-isystem /opt/intel/oneapi/dpcpp-ct/2025.3/include -cxx-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include/dal -internal-isystem /opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/backward -internal-isystem /opt/intel/oneapi/compiler/2025.3/lib/clang/21/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -fintel-libimf-allowed -o CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/local/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
+         "/opt/intel/oneapi/compiler/2025.3/bin/compiler/clang" -cc1 -triple x86_64-unknown-linux-gnu -O2 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -fveclib=SVML -faltmathlib=SVMLAltMathLibrary -mframe-pointer=none -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign,preserve-sign -ffp-contract=fast-honor-pragmas -fno-rounding-math -complex-range=promoted -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY -v -fcoverage-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY -fclang-abi-compat=17 -resource-dir /opt/intel/oneapi/compiler/2025.3/lib/clang/21 -dependency-file CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -I/opt/intel/oneapi/umf/1.0/include -I/opt/intel/oneapi/mkl/2025.3/include -I/opt/intel/oneapi/dev-utilities/2025.3/include -I/opt/intel/oneapi/ccl/2021.17/include -c-isystem /opt/intel/oneapi/umf/1.0/include -c-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -c-isystem /opt/intel/oneapi/pti/0.13/include -c-isystem /opt/intel/oneapi/mpi/2021.17/include -c-isystem /opt/intel/oneapi/mkl/2025.3/include -c-isystem /opt/intel/oneapi/ishmem/1.5/include -c-isystem /opt/intel/oneapi/ippcp/2025.3/include -c-isystem /opt/intel/oneapi/ipp/2022.3/include -c-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/umf/1.0/include -cxx-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -cxx-isystem /opt/intel/oneapi/pti/0.13/include -cxx-isystem /opt/intel/oneapi/mpi/2021.17/include -cxx-isystem /opt/intel/oneapi/mkl/2025.3/include -cxx-isystem /opt/intel/oneapi/ishmem/1.5/include -cxx-isystem /opt/intel/oneapi/ippcp/2025.3/include -cxx-isystem /opt/intel/oneapi/ipp/2022.3/include -cxx-isystem /opt/intel/oneapi/dpl/2022.10/include -cxx-isystem /opt/intel/oneapi/dpcpp-ct/2025.3/include -cxx-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include/dal -internal-isystem /opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/backward -internal-isystem /opt/intel/oneapi/compiler/2025.3/lib/clang/21/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -fintel-libimf-allowed -o CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/local/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
         clang -cc1 version 21.1.1 based upon LLVM 21.1.1 default target x86_64-unknown-linux-gnu
         ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include"
         ignoring nonexistent directory "/include"
@@ -3011,8 +3011,8 @@ events:
          /usr/include/x86_64-linux-gnu
          /usr/include
         End of search list.
-        Linking CXX executable cmTC_bd957
-        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bd957.dir/link.txt --verbose=1
+        Linking CXX executable cmTC_bbcfa
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bbcfa.dir/link.txt --verbose=1
         Intel(R) oneAPI DPC++/C++ Compiler 2025.3.1 (2025.3.1.20251023)
         Target: x86_64-unknown-linux-gnu
         Thread model: posix
@@ -3022,9 +3022,9 @@ events:
         Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/14
         Candidate multilib: .;@m64
         Selected multilib: .;@m64
-         "/usr/bin/ld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_bd957 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/lib/clang/21/lib/x86_64-unknown-linux-gnu -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib64 -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tcm/1.4/lib -L/opt/intel/oneapi/umf/1.0/lib -L/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/pti/0.13/lib -L/opt/intel/oneapi/mpi/2021.17/lib -L/opt/intel/oneapi/mkl/2025.3/lib -L/opt/intel/oneapi/ishmem/1.5/lib -L/opt/intel/oneapi/ippcp/2025.3/lib/ -L/opt/intel/oneapi/ipp/2022.3/lib -L/opt/intel/oneapi/dnnl/2025.3/lib -L/opt/intel/oneapi/dal/2025.9/lib -L/opt/intel/oneapi/compiler/2025.3/lib -L/opt/intel/oneapi/ccl/2021.17/lib/ CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -lstdc++ -Bstatic -limf -Bdynamic -lm -lgcc_s -lgcc -Bstatic -lirc -Bdynamic -ldl -lgcc_s -lgcc -lc -lgcc_s -lgcc -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o
-        /opt/intel/oneapi/compiler/2025.3/bin/icpx -v CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_bd957
-        gmake[1]: Leaving directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD'
+         "/usr/bin/ld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_bbcfa /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/lib/clang/21/lib/x86_64-unknown-linux-gnu -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib64 -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tcm/1.4/lib -L/opt/intel/oneapi/umf/1.0/lib -L/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/pti/0.13/lib -L/opt/intel/oneapi/mpi/2021.17/lib -L/opt/intel/oneapi/mkl/2025.3/lib -L/opt/intel/oneapi/ishmem/1.5/lib -L/opt/intel/oneapi/ippcp/2025.3/lib/ -L/opt/intel/oneapi/ipp/2022.3/lib -L/opt/intel/oneapi/dnnl/2025.3/lib -L/opt/intel/oneapi/dal/2025.9/lib -L/opt/intel/oneapi/compiler/2025.3/lib -L/opt/intel/oneapi/ccl/2021.17/lib/ CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -lstdc++ -Bstatic -limf -Bdynamic -lm -lgcc_s -lgcc -Bstatic -lirc -Bdynamic -ldl -lgcc_s -lgcc -lc -lgcc_s -lgcc -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+        /opt/intel/oneapi/compiler/2025.3/bin/icpx -v CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_bbcfa
+        gmake[1]: Leaving directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY'
         
       exitCode: 0
   -
@@ -3097,13 +3097,13 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD']
+        ignore line: [Change Dir: '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bd957/fast]
-        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_bd957.dir/build.make CMakeFiles/cmTC_bd957.dir/build]
-        ignore line: [gmake[1]: Entering directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD']
-        ignore line: [Building CXX object CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/opt/intel/oneapi/compiler/2025.3/bin/icpx   -v -MD -MT CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bbcfa/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_bbcfa.dir/build.make CMakeFiles/cmTC_bbcfa.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY']
+        ignore line: [Building CXX object CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/opt/intel/oneapi/compiler/2025.3/bin/icpx   -v -MD -MT CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Intel(R) oneAPI DPC++/C++ Compiler 2025.3.1 (2025.3.1.20251023)]
         ignore line: [Target: x86_64-unknown-linux-gnu]
         ignore line: [Thread model: posix]
@@ -3116,7 +3116,7 @@ events:
         ignore line: [Selected multilib: .]
         ignore line: [@m64]
         ignore line: [ (in-process)]
-        ignore line: [ "/opt/intel/oneapi/compiler/2025.3/bin/compiler/clang" -cc1 -triple x86_64-unknown-linux-gnu -O2 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -fveclib=SVML -faltmathlib=SVMLAltMathLibrary -mframe-pointer=none -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign preserve-sign -ffp-contract=fast-honor-pragmas -fno-rounding-math -complex-range=promoted -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD -v -fcoverage-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-QrjHjD -fclang-abi-compat=17 -resource-dir /opt/intel/oneapi/compiler/2025.3/lib/clang/21 -dependency-file CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -I/opt/intel/oneapi/umf/1.0/include -I/opt/intel/oneapi/mkl/2025.3/include -I/opt/intel/oneapi/dev-utilities/2025.3/include -I/opt/intel/oneapi/ccl/2021.17/include -c-isystem /opt/intel/oneapi/umf/1.0/include -c-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -c-isystem /opt/intel/oneapi/pti/0.13/include -c-isystem /opt/intel/oneapi/mpi/2021.17/include -c-isystem /opt/intel/oneapi/mkl/2025.3/include -c-isystem /opt/intel/oneapi/ishmem/1.5/include -c-isystem /opt/intel/oneapi/ippcp/2025.3/include -c-isystem /opt/intel/oneapi/ipp/2022.3/include -c-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/umf/1.0/include -cxx-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -cxx-isystem /opt/intel/oneapi/pti/0.13/include -cxx-isystem /opt/intel/oneapi/mpi/2021.17/include -cxx-isystem /opt/intel/oneapi/mkl/2025.3/include -cxx-isystem /opt/intel/oneapi/ishmem/1.5/include -cxx-isystem /opt/intel/oneapi/ippcp/2025.3/include -cxx-isystem /opt/intel/oneapi/ipp/2022.3/include -cxx-isystem /opt/intel/oneapi/dpl/2022.10/include -cxx-isystem /opt/intel/oneapi/dpcpp-ct/2025.3/include -cxx-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include/dal -internal-isystem /opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/backward -internal-isystem /opt/intel/oneapi/compiler/2025.3/lib/clang/21/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -fintel-libimf-allowed -o CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/local/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [ "/opt/intel/oneapi/compiler/2025.3/bin/compiler/clang" -cc1 -triple x86_64-unknown-linux-gnu -O2 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -fveclib=SVML -faltmathlib=SVMLAltMathLibrary -mframe-pointer=none -fapprox-func -funsafe-math-optimizations -fno-signed-zeros -mreassociate -freciprocal-math -fdenormal-fp-math=preserve-sign preserve-sign -ffp-contract=fast-honor-pragmas -fno-rounding-math -complex-range=promoted -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -mllvm -x86-enable-unaligned-vector-move=true -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY -v -fcoverage-compilation-dir=/home/q/usb-c-soft-network/build/CMakeFiles/CMakeScratch/TryCompile-L9B5FY -fclang-abi-compat=17 -resource-dir /opt/intel/oneapi/compiler/2025.3/lib/clang/21 -dependency-file CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -I/opt/intel/oneapi/umf/1.0/include -I/opt/intel/oneapi/mkl/2025.3/include -I/opt/intel/oneapi/dev-utilities/2025.3/include -I/opt/intel/oneapi/ccl/2021.17/include -c-isystem /opt/intel/oneapi/umf/1.0/include -c-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -c-isystem /opt/intel/oneapi/pti/0.13/include -c-isystem /opt/intel/oneapi/mpi/2021.17/include -c-isystem /opt/intel/oneapi/mkl/2025.3/include -c-isystem /opt/intel/oneapi/ishmem/1.5/include -c-isystem /opt/intel/oneapi/ippcp/2025.3/include -c-isystem /opt/intel/oneapi/ipp/2022.3/include -c-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/umf/1.0/include -cxx-isystem /opt/intel/oneapi/tbb/2022.3/env/../include -cxx-isystem /opt/intel/oneapi/pti/0.13/include -cxx-isystem /opt/intel/oneapi/mpi/2021.17/include -cxx-isystem /opt/intel/oneapi/mkl/2025.3/include -cxx-isystem /opt/intel/oneapi/ishmem/1.5/include -cxx-isystem /opt/intel/oneapi/ippcp/2025.3/include -cxx-isystem /opt/intel/oneapi/ipp/2022.3/include -cxx-isystem /opt/intel/oneapi/dpl/2022.10/include -cxx-isystem /opt/intel/oneapi/dpcpp-ct/2025.3/include -cxx-isystem /opt/intel/oneapi/dnnl/2025.3/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include -cxx-isystem /opt/intel/oneapi/dal/2025.9/include/dal -internal-isystem /opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/backward -internal-isystem /opt/intel/oneapi/compiler/2025.3/lib/clang/21/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -mllvm -disable-hir-generate-mkl-call -mllvm -loopopt=1 -floopopt-pipeline=light -mllvm -intel-abi-compatible=true -D__GCC_HAVE_DWARF2_CFI_ASM=1 -fintel-compatibility -fintel-libirc-allowed -fintel-libimf-allowed -o CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/local/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [clang -cc1 version 21.1.1 based upon LLVM 21.1.1 default target x86_64-unknown-linux-gnu]
         ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/14/../../../../x86_64-linux-gnu/include"]
         ignore line: [ignoring nonexistent directory "/include"]
@@ -3150,8 +3150,8 @@ events:
         ignore line: [ /usr/include/x86_64-linux-gnu]
         ignore line: [ /usr/include]
         ignore line: [End of search list.]
-        ignore line: [Linking CXX executable cmTC_bd957]
-        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bd957.dir/link.txt --verbose=1]
+        ignore line: [Linking CXX executable cmTC_bbcfa]
+        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bbcfa.dir/link.txt --verbose=1]
         ignore line: [Intel(R) oneAPI DPC++/C++ Compiler 2025.3.1 (2025.3.1.20251023)]
         ignore line: [Target: x86_64-unknown-linux-gnu]
         ignore line: [Thread model: posix]
@@ -3163,7 +3163,7 @@ events:
         ignore line: [@m64]
         ignore line: [Selected multilib: .]
         ignore line: [@m64]
-        link line: [ "/usr/bin/ld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_bd957 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/lib/clang/21/lib/x86_64-unknown-linux-gnu -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib64 -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tcm/1.4/lib -L/opt/intel/oneapi/umf/1.0/lib -L/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/pti/0.13/lib -L/opt/intel/oneapi/mpi/2021.17/lib -L/opt/intel/oneapi/mkl/2025.3/lib -L/opt/intel/oneapi/ishmem/1.5/lib -L/opt/intel/oneapi/ippcp/2025.3/lib/ -L/opt/intel/oneapi/ipp/2022.3/lib -L/opt/intel/oneapi/dnnl/2025.3/lib -L/opt/intel/oneapi/dal/2025.9/lib -L/opt/intel/oneapi/compiler/2025.3/lib -L/opt/intel/oneapi/ccl/2021.17/lib/ CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -lstdc++ -Bstatic -limf -Bdynamic -lm -lgcc_s -lgcc -Bstatic -lirc -Bdynamic -ldl -lgcc_s -lgcc -lc -lgcc_s -lgcc -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+        link line: [ "/usr/bin/ld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_bbcfa /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/lib/clang/21/lib/x86_64-unknown-linux-gnu -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/usr/lib/gcc/x86_64-linux-gnu/14 -L/usr/lib/gcc/x86_64-linux-gnu/14/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib64 -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../lib -L/opt/intel/oneapi/compiler/2025.3/bin/compiler/../../opt/compiler/lib -L/lib -L/usr/lib -L/opt/intel/oneapi/tcm/1.4/lib -L/opt/intel/oneapi/umf/1.0/lib -L/opt/intel/oneapi/tbb/2022.3/env/../lib/intel64/gcc4.8 -L/opt/intel/oneapi/pti/0.13/lib -L/opt/intel/oneapi/mpi/2021.17/lib -L/opt/intel/oneapi/mkl/2025.3/lib -L/opt/intel/oneapi/ishmem/1.5/lib -L/opt/intel/oneapi/ippcp/2025.3/lib/ -L/opt/intel/oneapi/ipp/2022.3/lib -L/opt/intel/oneapi/dnnl/2025.3/lib -L/opt/intel/oneapi/dal/2025.9/lib -L/opt/intel/oneapi/compiler/2025.3/lib -L/opt/intel/oneapi/ccl/2021.17/lib/ CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lsvml -Bdynamic -Bstatic -lirng -Bdynamic -lstdc++ -Bstatic -limf -Bdynamic -lm -lgcc_s -lgcc -Bstatic -lirc -Bdynamic -ldl -lgcc_s -lgcc -lc -lgcc_s -lgcc -Bstatic -lirc_s -Bdynamic /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
           arg [/usr/bin/ld] ==> ignore
           arg [--hash-style=gnu] ==> ignore
           arg [--eh-frame-hdr] ==> ignore
@@ -3172,7 +3172,7 @@ events:
           arg [-dynamic-linker] ==> ignore
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_bd957] ==> ignore
+          arg [cmTC_bbcfa] ==> ignore
           arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
           arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o]
@@ -3203,7 +3203,7 @@ events:
           arg [-L/opt/intel/oneapi/dal/2025.9/lib] ==> dir [/opt/intel/oneapi/dal/2025.9/lib]
           arg [-L/opt/intel/oneapi/compiler/2025.3/lib] ==> dir [/opt/intel/oneapi/compiler/2025.3/lib]
           arg [-L/opt/intel/oneapi/ccl/2021.17/lib/] ==> dir [/opt/intel/oneapi/ccl/2021.17/lib/]
-          arg [CMakeFiles/cmTC_bd957.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_bbcfa.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-Bstatic] ==> search static
           arg [-lsvml] ==> lib [svml]
           arg [-Bdynamic] ==> search dynamic
@@ -3275,4 +3275,312 @@ events:
     message: |
       Running the CXX compiler's linker: "/usr/bin/ld" "-v"
       GNU ld (GNU Binutils for Debian) 2.44
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake-4.1/Modules/FindPkgConfig.cmake:69 (find_program)"
+      - "CMakeLists.txt:34 (find_package)"
+    mode: "program"
+    variable: "PKG_CONFIG_EXECUTABLE"
+    description: "pkg-config executable"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "pkg-config"
+      - "pkgconf"
+    candidate_directories:
+      - "/opt/intel/oneapi/tbb/2022.3/bin/"
+      - "/opt/intel/oneapi/tbb/2022.3/sbin/"
+      - "/opt/intel/oneapi/tbb/2022.3/"
+      - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti/bin/"
+      - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti/sbin/"
+      - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti/"
+      - "/opt/intel/oneapi/mkl/2025.3/lib/cmake/bin/"
+      - "/opt/intel/oneapi/mkl/2025.3/lib/cmake/sbin/"
+      - "/opt/intel/oneapi/mkl/2025.3/lib/cmake/"
+      - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem/bin/"
+      - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem/sbin/"
+      - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem/"
+      - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp/bin/"
+      - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp/sbin/"
+      - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp/"
+      - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL/bin/"
+      - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL/sbin/"
+      - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL/"
+      - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake/bin/"
+      - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake/sbin/"
+      - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake/"
+      - "/opt/intel/oneapi/dal/2025.9/bin/"
+      - "/opt/intel/oneapi/dal/2025.9/sbin/"
+      - "/opt/intel/oneapi/dal/2025.9/"
+      - "/opt/intel/oneapi/compiler/2025.3/bin/"
+      - "/opt/intel/oneapi/compiler/2025.3/sbin/"
+      - "/opt/intel/oneapi/compiler/2025.3/"
+      - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL/bin/"
+      - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL/sbin/"
+      - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL/"
+      - "/usr/local/gcc-15/bin/"
+      - "/home/q/.opencode/bin/"
+      - "/usr/sbin/"
+      - "/home/q/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "/home/q/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "/home/q/.local/bin/"
+      - "/opt/intel/oneapi/vtune/2025.7/bin64/"
+      - "/opt/intel/oneapi/mpi/2021.17/bin/"
+      - "/opt/intel/oneapi/mkl/2025.3/bin/"
+      - "/opt/intel/oneapi/ishmem/1.5/bin/"
+      - "/opt/intel/oneapi/dpcpp-ct/2025.3/bin/"
+      - "/opt/intel/oneapi/dev-utilities/2025.3/bin/"
+      - "/opt/intel/oneapi/debugger/2025.3/opt/debugger/bin/"
+      - "/opt/intel/oneapi/compiler/2025.3/bin/"
+      - "/opt/intel/oneapi/advisor/2025.4/bin64/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/games/"
+      - "/usr/games/"
+      - "/home/q/.lmstudio/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    searched_directories:
+      - "/opt/intel/oneapi/tbb/2022.3/bin/pkg-config"
+      - "/opt/intel/oneapi/tbb/2022.3/bin/pkgconf"
+      - "/opt/intel/oneapi/tbb/2022.3/sbin/pkg-config"
+      - "/opt/intel/oneapi/tbb/2022.3/sbin/pkgconf"
+      - "/opt/intel/oneapi/tbb/2022.3/pkg-config"
+      - "/opt/intel/oneapi/tbb/2022.3/pkgconf"
+      - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti/bin/pkg-config"
+      - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti/bin/pkgconf"
+      - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti/sbin/pkg-config"
+      - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti/sbin/pkgconf"
+      - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti/pkg-config"
+      - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti/pkgconf"
+      - "/opt/intel/oneapi/mkl/2025.3/lib/cmake/bin/pkg-config"
+      - "/opt/intel/oneapi/mkl/2025.3/lib/cmake/bin/pkgconf"
+      - "/opt/intel/oneapi/mkl/2025.3/lib/cmake/sbin/pkg-config"
+      - "/opt/intel/oneapi/mkl/2025.3/lib/cmake/sbin/pkgconf"
+      - "/opt/intel/oneapi/mkl/2025.3/lib/cmake/pkg-config"
+      - "/opt/intel/oneapi/mkl/2025.3/lib/cmake/pkgconf"
+      - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem/bin/pkg-config"
+      - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem/bin/pkgconf"
+      - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem/sbin/pkg-config"
+      - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem/sbin/pkgconf"
+      - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem/pkg-config"
+      - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem/pkgconf"
+      - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp/bin/pkg-config"
+      - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp/bin/pkgconf"
+      - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp/sbin/pkg-config"
+      - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp/sbin/pkgconf"
+      - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp/pkg-config"
+      - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp/pkgconf"
+      - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL/bin/pkg-config"
+      - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL/bin/pkgconf"
+      - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL/sbin/pkg-config"
+      - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL/sbin/pkgconf"
+      - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL/pkg-config"
+      - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL/pkgconf"
+      - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake/bin/pkg-config"
+      - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake/bin/pkgconf"
+      - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake/sbin/pkg-config"
+      - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake/sbin/pkgconf"
+      - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake/pkg-config"
+      - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake/pkgconf"
+      - "/opt/intel/oneapi/dal/2025.9/bin/pkg-config"
+      - "/opt/intel/oneapi/dal/2025.9/bin/pkgconf"
+      - "/opt/intel/oneapi/dal/2025.9/sbin/pkg-config"
+      - "/opt/intel/oneapi/dal/2025.9/sbin/pkgconf"
+      - "/opt/intel/oneapi/dal/2025.9/pkg-config"
+      - "/opt/intel/oneapi/dal/2025.9/pkgconf"
+      - "/opt/intel/oneapi/compiler/2025.3/bin/pkg-config"
+      - "/opt/intel/oneapi/compiler/2025.3/bin/pkgconf"
+      - "/opt/intel/oneapi/compiler/2025.3/sbin/pkg-config"
+      - "/opt/intel/oneapi/compiler/2025.3/sbin/pkgconf"
+      - "/opt/intel/oneapi/compiler/2025.3/pkg-config"
+      - "/opt/intel/oneapi/compiler/2025.3/pkgconf"
+      - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL/bin/pkg-config"
+      - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL/bin/pkgconf"
+      - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL/sbin/pkg-config"
+      - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL/sbin/pkgconf"
+      - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL/pkg-config"
+      - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL/pkgconf"
+      - "/usr/local/gcc-15/bin/pkg-config"
+      - "/usr/local/gcc-15/bin/pkgconf"
+      - "/home/q/.opencode/bin/pkg-config"
+      - "/home/q/.opencode/bin/pkgconf"
+      - "/usr/sbin/pkg-config"
+      - "/usr/sbin/pkgconf"
+      - "/home/q/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/pkg-config"
+      - "/home/q/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/pkgconf"
+      - "/home/q/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/pkg-config"
+      - "/home/q/.config/Code/User/globalStorage/github.copilot-chat/copilotCli/pkgconf"
+      - "/home/q/.local/bin/pkg-config"
+      - "/home/q/.local/bin/pkgconf"
+      - "/opt/intel/oneapi/vtune/2025.7/bin64/pkg-config"
+      - "/opt/intel/oneapi/vtune/2025.7/bin64/pkgconf"
+      - "/opt/intel/oneapi/mpi/2021.17/bin/pkg-config"
+      - "/opt/intel/oneapi/mpi/2021.17/bin/pkgconf"
+      - "/opt/intel/oneapi/mkl/2025.3/bin/pkg-config"
+      - "/opt/intel/oneapi/mkl/2025.3/bin/pkgconf"
+      - "/opt/intel/oneapi/ishmem/1.5/bin/pkg-config"
+      - "/opt/intel/oneapi/ishmem/1.5/bin/pkgconf"
+      - "/opt/intel/oneapi/dpcpp-ct/2025.3/bin/pkg-config"
+      - "/opt/intel/oneapi/dpcpp-ct/2025.3/bin/pkgconf"
+      - "/opt/intel/oneapi/dev-utilities/2025.3/bin/pkg-config"
+      - "/opt/intel/oneapi/dev-utilities/2025.3/bin/pkgconf"
+      - "/opt/intel/oneapi/debugger/2025.3/opt/debugger/bin/pkg-config"
+      - "/opt/intel/oneapi/debugger/2025.3/opt/debugger/bin/pkgconf"
+      - "/opt/intel/oneapi/compiler/2025.3/bin/pkg-config"
+      - "/opt/intel/oneapi/compiler/2025.3/bin/pkgconf"
+      - "/opt/intel/oneapi/advisor/2025.4/bin64/pkg-config"
+      - "/opt/intel/oneapi/advisor/2025.4/bin64/pkgconf"
+      - "/usr/local/bin/pkg-config"
+      - "/usr/local/bin/pkgconf"
+    found: "/usr/bin/pkg-config"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/opt/intel/oneapi/tbb/2022.3/env/.."
+        - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti"
+        - "/opt/intel/oneapi/mkl/2025.3/lib/cmake"
+        - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem"
+        - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp"
+        - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL"
+        - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake"
+        - "/opt/intel/oneapi/dal/2025.9"
+        - "/opt/intel/oneapi/compiler/2025.3"
+        - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL"
+      ENV{PATH}:
+        - "/usr/local/gcc-15/bin"
+        - "/home/q/.opencode/bin"
+        - "/usr/sbin"
+        - "/home/q/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/q/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/q/.local/bin"
+        - "/opt/intel/oneapi/vtune/2025.7/bin64"
+        - "/opt/intel/oneapi/mpi/2021.17/bin"
+        - "/opt/intel/oneapi/mkl/2025.3/bin"
+        - "/opt/intel/oneapi/ishmem/1.5/bin"
+        - "/opt/intel/oneapi/dpcpp-ct/2025.3/bin"
+        - "/opt/intel/oneapi/dev-utilities/2025.3/bin"
+        - "/opt/intel/oneapi/debugger/2025.3/opt/debugger/bin"
+        - "/opt/intel/oneapi/compiler/2025.3/bin"
+        - "/opt/intel/oneapi/advisor/2025.4/bin64"
+        - "/usr/local/gcc-15/bin"
+        - "/home/q/.opencode/bin"
+        - "/usr/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/games"
+        - "/usr/games"
+        - "/home/q/.local/bin"
+        - "/home/q/.local/bin"
+        - "/home/q/.lmstudio/bin"
+        - "/home/q/.local/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr/local"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake-4.1/Modules/FindPkgConfig.cmake:307 (find_library)"
+      - "/usr/local/share/cmake-4.1/Modules/FindPkgConfig.cmake:357 (_pkg_find_libs)"
+      - "/usr/local/share/cmake-4.1/Modules/FindPkgConfig.cmake:695 (_pkg_recalculate)"
+      - "/usr/local/share/cmake-4.1/Modules/FindPkgConfig.cmake:867 (_pkg_check_modules_internal)"
+      - "CMakeLists.txt:35 (pkg_check_modules)"
+    mode: "library"
+    variable: "pkgcfg_lib_LIBUSB_usb-1.0"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "usb-1.0"
+    candidate_directories:
+      - "/usr/lib/x86_64-linux-gnu/"
+    found: "/usr/lib/x86_64-linux-gnu/libusb-1.0.so"
+    search_context:
+      ENV{CMAKE_PREFIX_PATH}:
+        - "/opt/intel/oneapi/tbb/2022.3/env/.."
+        - "/opt/intel/oneapi/pti/0.13/lib/cmake/pti"
+        - "/opt/intel/oneapi/mkl/2025.3/lib/cmake"
+        - "/opt/intel/oneapi/ishmem/1.5/lib/cmake/ishmem"
+        - "/opt/intel/oneapi/ipp/2022.3/lib/cmake/ipp"
+        - "/opt/intel/oneapi/dpl/2022.10/lib/cmake/oneDPL"
+        - "/opt/intel/oneapi/dnnl/2025.3/lib/cmake"
+        - "/opt/intel/oneapi/dal/2025.9"
+        - "/opt/intel/oneapi/compiler/2025.3"
+        - "/opt/intel/oneapi/ccl/2021.17/lib/cmake/oneCCL"
+      ENV{PATH}:
+        - "/usr/local/gcc-15/bin"
+        - "/home/q/.opencode/bin"
+        - "/usr/sbin"
+        - "/home/q/.config/Code/User/globalStorage/github.copilot-chat/debugCommand"
+        - "/home/q/.config/Code/User/globalStorage/github.copilot-chat/copilotCli"
+        - "/home/q/.local/bin"
+        - "/opt/intel/oneapi/vtune/2025.7/bin64"
+        - "/opt/intel/oneapi/mpi/2021.17/bin"
+        - "/opt/intel/oneapi/mkl/2025.3/bin"
+        - "/opt/intel/oneapi/ishmem/1.5/bin"
+        - "/opt/intel/oneapi/dpcpp-ct/2025.3/bin"
+        - "/opt/intel/oneapi/dev-utilities/2025.3/bin"
+        - "/opt/intel/oneapi/debugger/2025.3/opt/debugger/bin"
+        - "/opt/intel/oneapi/compiler/2025.3/bin"
+        - "/opt/intel/oneapi/advisor/2025.4/bin64"
+        - "/usr/local/gcc-15/bin"
+        - "/home/q/.opencode/bin"
+        - "/usr/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/games"
+        - "/usr/games"
+        - "/home/q/.local/bin"
+        - "/home/q/.local/bin"
+        - "/home/q/.lmstudio/bin"
+        - "/home/q/.local/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr/local"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
 ...

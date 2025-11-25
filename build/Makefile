@@ -169,6 +169,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named usb-c-net
+
+# Build rule for target.
+usb-c-net: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 usb-c-net
+.PHONY : usb-c-net
+
+# fast build rule for target.
+usb-c-net/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/usb-c-net.dir/build.make CMakeFiles/usb-c-net.dir/build
+.PHONY : usb-c-net/fast
+
+#=============================================================================
 # Target rules for targets named dummy
 
 # Build rule for target.
@@ -218,6 +231,30 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummy.dir/build.make CMakeFiles/dummy.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/usb_net_core.o: src/usb_net_core.c.o
+.PHONY : src/usb_net_core.o
+
+# target to build an object file
+src/usb_net_core.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/usb-c-net.dir/build.make CMakeFiles/usb-c-net.dir/src/usb_net_core.c.o
+.PHONY : src/usb_net_core.c.o
+
+src/usb_net_core.i: src/usb_net_core.c.i
+.PHONY : src/usb_net_core.i
+
+# target to preprocess a source file
+src/usb_net_core.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/usb-c-net.dir/build.make CMakeFiles/usb-c-net.dir/src/usb_net_core.c.i
+.PHONY : src/usb_net_core.c.i
+
+src/usb_net_core.s: src/usb_net_core.c.s
+.PHONY : src/usb_net_core.s
+
+# target to generate assembly for a file
+src/usb_net_core.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/usb-c-net.dir/build.make CMakeFiles/usb-c-net.dir/src/usb_net_core.c.s
+.PHONY : src/usb_net_core.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -233,9 +270,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... dummy"
 	@echo "... simple_usb_net"
+	@echo "... usb-c-net"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/usb_net_core.o"
+	@echo "... src/usb_net_core.i"
+	@echo "... src/usb_net_core.s"
 .PHONY : help
 
 

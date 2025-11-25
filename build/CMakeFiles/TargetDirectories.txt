@@ -1,3 +1,4 @@
+/home/q/usb-c-soft-network/build/CMakeFiles/usb-c-net.dir
 /home/q/usb-c-soft-network/build/CMakeFiles/dummy.dir
 /home/q/usb-c-soft-network/build/CMakeFiles/edit_cache.dir
 /home/q/usb-c-soft-network/build/CMakeFiles/rebuild_cache.dir

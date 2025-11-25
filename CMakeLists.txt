@@ -30,6 +30,18 @@ endif()
 add_compile_options($<$<C_COMPILER_ID:Intel>:-std=c23>)
 add_compile_options($<$<CXX_COMPILER_ID:Intel>:-std=c++23>)
 
+# Find libusb for direct USB hardware access
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(LIBUSB REQUIRED libusb-1.0)
+
+# Main USB-C network core with direct hardware access
+add_executable(usb-c-net src/usb_net_core.c)
+target_link_libraries(usb-c-net ${LIBUSB_LIBRARIES})
+target_include_directories(usb-c-net PRIVATE ${LIBUSB_INCLUDE_DIRS})
+target_compile_definitions(usb-c-net PRIVATE TEST_HARDWARE=$<BOOL:${TEST_HARDWARE}>)
+
+install(TARGETS usb-c-net DESTINATION bin)
+
 # Minimal target so the project can start
 add_executable(dummy src/main.c)
 target_compile_definitions(dummy PRIVATE TEST_HARDWARE=$<BOOL:${TEST_HARDWARE}>)
