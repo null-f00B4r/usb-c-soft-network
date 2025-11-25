@@ -132,21 +132,21 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/q/usb-c-soft-network/build/CMakeFiles /home/q/usb-c-soft-network/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /home/q/usb-c-soft-network/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/q/usb-c-soft-network/build/CMakeFiles /home/q/usb-c-soft-network/build/examples//CMakeFiles/progress.marks
+	cd /home/q/usb-c-soft-network/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/q/usb-c-soft-network/build/CMakeFiles 0
 .PHONY : all
 
 # The main codegen target
 codegen: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/q/usb-c-soft-network/build/CMakeFiles /home/q/usb-c-soft-network/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 codegen
+	cd /home/q/usb-c-soft-network/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/q/usb-c-soft-network/build/CMakeFiles /home/q/usb-c-soft-network/build/examples//CMakeFiles/progress.marks
+	cd /home/q/usb-c-soft-network/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/codegen
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/q/usb-c-soft-network/build/CMakeFiles 0
 .PHONY : codegen
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /home/q/usb-c-soft-network/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/clean
 .PHONY : clean
 
 # The main clean target
@@ -155,68 +155,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/q/usb-c-soft-network/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/q/usb-c-soft-network/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/q/usb-c-soft-network/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named dummy
+# Convenience name for target.
+examples/CMakeFiles/simple_usb_net.dir/rule:
+	cd /home/q/usb-c-soft-network/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/CMakeFiles/simple_usb_net.dir/rule
+.PHONY : examples/CMakeFiles/simple_usb_net.dir/rule
 
-# Build rule for target.
-dummy: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dummy
-.PHONY : dummy
-
-# fast build rule for target.
-dummy/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummy.dir/build.make CMakeFiles/dummy.dir/build
-.PHONY : dummy/fast
-
-#=============================================================================
-# Target rules for targets named simple_usb_net
-
-# Build rule for target.
-simple_usb_net: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 simple_usb_net
+# Convenience name for target.
+simple_usb_net: examples/CMakeFiles/simple_usb_net.dir/rule
 .PHONY : simple_usb_net
 
 # fast build rule for target.
 simple_usb_net/fast:
-	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/simple_usb_net.dir/build.make examples/CMakeFiles/simple_usb_net.dir/build
+	cd /home/q/usb-c-soft-network/build && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/simple_usb_net.dir/build.make examples/CMakeFiles/simple_usb_net.dir/build
 .PHONY : simple_usb_net/fast
 
-src/main.o: src/main.c.o
-.PHONY : src/main.o
+simple_usb_net.o: simple_usb_net.c.o
+.PHONY : simple_usb_net.o
 
 # target to build an object file
-src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummy.dir/build.make CMakeFiles/dummy.dir/src/main.c.o
-.PHONY : src/main.c.o
+simple_usb_net.c.o:
+	cd /home/q/usb-c-soft-network/build && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/simple_usb_net.dir/build.make examples/CMakeFiles/simple_usb_net.dir/simple_usb_net.c.o
+.PHONY : simple_usb_net.c.o
 
-src/main.i: src/main.c.i
-.PHONY : src/main.i
+simple_usb_net.i: simple_usb_net.c.i
+.PHONY : simple_usb_net.i
 
 # target to preprocess a source file
-src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummy.dir/build.make CMakeFiles/dummy.dir/src/main.c.i
-.PHONY : src/main.c.i
+simple_usb_net.c.i:
+	cd /home/q/usb-c-soft-network/build && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/simple_usb_net.dir/build.make examples/CMakeFiles/simple_usb_net.dir/simple_usb_net.c.i
+.PHONY : simple_usb_net.c.i
 
-src/main.s: src/main.c.s
-.PHONY : src/main.s
+simple_usb_net.s: simple_usb_net.c.s
+.PHONY : simple_usb_net.s
 
 # target to generate assembly for a file
-src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummy.dir/build.make CMakeFiles/dummy.dir/src/main.c.s
-.PHONY : src/main.c.s
+simple_usb_net.c.s:
+	cd /home/q/usb-c-soft-network/build && $(MAKE) $(MAKESILENT) -f examples/CMakeFiles/simple_usb_net.dir/build.make examples/CMakeFiles/simple_usb_net.dir/simple_usb_net.c.s
+.PHONY : simple_usb_net.c.s
 
 # Help Target
 help:
@@ -231,11 +219,10 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... dummy"
 	@echo "... simple_usb_net"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... simple_usb_net.o"
+	@echo "... simple_usb_net.i"
+	@echo "... simple_usb_net.s"
 .PHONY : help
 
 
@@ -247,6 +234,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/q/usb-c-soft-network/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/4.1.2/CMakeCCompiler.cmake"
   "CMakeFiles/4.1.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.1.2/CMakeSystem.cmake"
+  "/home/q/usb-c-soft-network/examples/CMakeLists.txt"
   "/usr/local/share/cmake-4.1/Modules/CMakeCCompiler.cmake.in"
   "/usr/local/share/cmake-4.1/Modules/CMakeCCompilerABI.c"
   "/usr/local/share/cmake-4.1/Modules/CMakeCInformation.cmake"
@@ -139,9 +140,11 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/4.1.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.1.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "examples/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/dummy.dir/DependInfo.cmake"
+  "examples/CMakeFiles/simple_usb_net.dir/DependInfo.cmake"
   )

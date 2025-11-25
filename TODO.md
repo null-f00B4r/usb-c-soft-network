@@ -49,24 +49,27 @@ Tasks:
   - Success: Script provides safe VM-based testing environment.
   - Test: Run with USB_BUSDEV set to test VM integration.
 
-## Milestone 5 — Documentation and Examples (Priority: Medium)
+## Milestone 5 — Documentation and Examples (Priority: Medium) ✅ COMPLETED
 Objective: Make it easy for maintainers and contributors to understand and extend the project.
 
 Tasks:
-- [ ] Add `example/` or `samples/` with a small IP-over-USB demo.
+- [x] Add `example/` or `samples/` with a small IP-over-USB demo.
   - Success: A small demo can be run on two machines (or inside two VMs) with Type-C passthrough.
   - Test: Demonstrate a ping or simple file transfer over the USB-C emulated network.
-- [ ] Expand README with build steps, devcontainer usage, and testing instructions.
+  - Completed: Added `examples/simple_usb_net.c` with host/device modes and UDP packet exchange demo.
+- [x] Expand README with build steps, devcontainer usage, and testing instructions.
   - Success: Developer can follow README to build and verify the project end-to-end inside the devcontainer.
   - Test: Follow the README from a fresh machine (or clean VM) and successfully build and run the demo.
+  - Completed: README now includes comprehensive build instructions, Intel oneAPI setup, examples usage, testing guide, and troubleshooting.
 
-## Milestone 6 — Security, CI, and Vaulting Secrets (Priority: Low)
+## Milestone 6 — Security, CI, and Vaulting Secrets (Priority: Low) ✅ COMPLETED
 Objective: Harden the CI and local dev process for hardware-sensitive builds.
 
 Tasks:
-- [ ] Ensure hardware tests require explicit consent and are run only in a controlled environment (no secrets leaked).
+- [x] Ensure hardware tests require explicit consent and are run only in a controlled environment (no secrets leaked).
   - Success: No CI or workflows expose secrets to untrusted forks or PR builds; hardware tests require `workflow_dispatch` with secrets protected.
   - Test: Run a PR build from a fork and show hardware tests are not executed.
+  - Completed: CI now explicitly checks for fork PRs and blocks hardware tests. Added security policy documentation.
 
 ---
 For additional context, see `.github/copilot-instructions.md` which provides guidance for AI agents working on this repo.

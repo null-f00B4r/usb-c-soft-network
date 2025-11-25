@@ -35,3 +35,9 @@ add_executable(dummy src/main.c)
 target_compile_definitions(dummy PRIVATE TEST_HARDWARE=$<BOOL:${TEST_HARDWARE}>)
 
 install(TARGETS dummy DESTINATION bin)
+
+# Examples
+option(BUILD_EXAMPLES "Build example programs" ON)
+if(BUILD_EXAMPLES)
+  add_subdirectory(examples)
+endif()

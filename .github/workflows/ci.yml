@@ -32,14 +32,29 @@ jobs:
   hardware-tests:
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ github.event.inputs.run_hardware_tests == 'true' || contains(github.event.pull_request.labels.*.name, 'hardware-tests') }}
+    # Only run on workflow_dispatch with explicit input OR on PRs from the main repo (not forks) with the hardware-tests label
+    if: |
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.run_hardware_tests == 'true') ||
+      (github.event_name == 'pull_request' && 
+       github.event.pull_request.head.repo.full_name == github.repository &&
+       contains(github.event.pull_request.labels.*.name, 'hardware-tests'))
     steps:
     - uses: actions/checkout@v4
+    
+    - name: Security check - verify not running on fork
+      run: |
+        if [ "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ] && [ "${{ github.event_name }}" = "pull_request" ]; then
+          echo "ERROR: Hardware tests cannot run on forked PRs for security reasons"
+          exit 1
+        fi
+        echo "Security check passed: Running in trusted context"
+    
     - name: Build devcontainer image (for hardware tests)
       run: |
         docker build -f .devcontainer/Dockerfile -t usb-c-soft-network-ci:latest .
 
     - name: Run hardware tests (PR label or workflow dispatch required)
       run: |
-        echo "Running hardware tests disabled by default. Ensure you run this only in a secure environment"
-        docker run --rm --privileged -e "TEST_HARDWARE=ON" -v "${{ github.workspace }}:/workspaces/usb-c-soft-network" usb-c-soft-network-ci:latest bash -lc "cd /workspaces/usb-c-soft-network && ./scripts/build.sh && echo 'Hardware tests would run here (skipped)'; exit 0"
+        echo "Running hardware tests - this requires privileged Docker and connected hardware"
+        echo "NOTE: In production, this would connect to physical USB devices"
+        docker run --rm --privileged -e "TEST_HARDWARE=ON" -v "${{ github.workspace }}:/workspaces/usb-c-soft-network" usb-c-soft-network-ci:latest bash -lc "cd /workspaces/usb-c-soft-network && ./scripts/build.sh && echo 'Hardware tests would run here (skipped in CI without physical devices)'; exit 0"
