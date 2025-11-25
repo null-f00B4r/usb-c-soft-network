@@ -52,10 +52,10 @@ void usb_net_list_devices(usb_net_device_t *device) {
     }
     
     printf("\nFound %zd USB devices:\n", cnt);
-    printf("%-4s %-6s %-6s %-8s %-8s %s\n", 
-           "Bus", "Device", "Speed", "Vendor", "Product", "Description");
-    printf("%-4s %-6s %-6s %-8s %-8s %s\n",
-           "---", "------", "-----", "------", "-------", "-----------");
+    printf("%-4s %-6s %-6s %-8s %-8s %-15s %s\n", 
+           "Bus", "Device", "Speed", "Vendor", "Product", "Current State", "Description");
+    printf("%-4s %-6s %-6s %-8s %-8s %-15s %s\n",
+           "---", "------", "-----", "------", "-------", "-------------", "-----------");
     
     for (i = 0; i < cnt; i++) {
         libusb_device *dev = devs[i];
@@ -73,19 +73,27 @@ void usb_net_list_devices(usb_net_device_t *device) {
             
             libusb_device_handle *h = NULL;
             char product[256] = "Unknown";
+            const char *state = "Unknown";
             
-            if (libusb_open(dev, &h) == 0) {
+            int open_result = libusb_open(dev, &h);
+            if (open_result == 0) {
+                state = "Connected";
                 libusb_get_string_descriptor_ascii(h, desc.iProduct, 
                     (unsigned char*)product, sizeof(product));
                 libusb_close(h);
+            } else if (open_result == LIBUSB_ERROR_ACCESS) {
+                state = "Connected";  // Device exists but permission denied
+            } else if (open_result == LIBUSB_ERROR_NO_DEVICE) {
+                state = "Not Connected";
             }
             
-            printf("%03d  %03d    %-6s %04x:%04x %s\n",
+            printf("%03d  %03d    %-6s %04x:%04x %-15s %s\n",
                    libusb_get_bus_number(dev),
                    libusb_get_device_address(dev),
                    speed_str,
                    desc.idVendor,
                    desc.idProduct,
+                   state,
                    product);
         }
     }

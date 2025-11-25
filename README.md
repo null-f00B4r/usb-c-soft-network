@@ -154,7 +154,10 @@ For detailed instructions, prerequisites, and troubleshooting, see [`examples/RE
 For testing without two physical machines:
 
 ```bash
-# Find USB-C ports
+# Identify USB-C port (auto-detects best method: sysfs or libusb)
+sudo ./scripts/identify-usb-c-port.sh
+
+# Find USB-C ports (Docker passthrough helper)
 ./scripts/find-usb-c-ports.sh
 
 # Run VM-based tests

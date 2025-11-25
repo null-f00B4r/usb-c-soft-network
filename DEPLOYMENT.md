@@ -36,7 +36,33 @@ sudo make install
 which simple_usb_net dummy
 ```
 
-### 2. Determine Host vs Device Roles
+### 2. USB-C Port Detection (Both Machines)
+
+Before establishing a connection, identify which Type-C port will be used:
+
+```bash
+sudo ./scripts/identify-usb-c-port.sh
+```
+
+This script automatically selects the best detection method:
+
+**Default: Type-C sysfs detection**
+- Works for **host-to-host** connections without gadget mode
+- Monitors `/sys/class/typec/` for physical cable connections
+- Recommended for most scenarios
+
+**Fallback: libusb device enumeration**
+- Automatically used if sysfs method fails
+- Only works when one end is in USB gadget/device mode
+- Requires USB device enumeration changes
+
+The script will:
+- Check for root privileges (required for accurate detection)
+- List all available Type-C ports
+- Monitor for cable connection/disconnection events
+- Save port configuration to `target_usb_c_port.env`
+
+### 3. Determine Host vs Device Roles
 
 **USB Host (qos)**: The computer that provides power and initiates communication
 **USB Device (local)**: The gadget that responds to the host

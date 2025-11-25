@@ -1,6 +1,9 @@
 # My thoughts
 thoughts.md
 
+# Environment files
+*.env
+
 # Build directories
 build/
 build-*/
