@@ -117,8 +117,8 @@ Received: Hello from device #1
 For safer testing without two physical machines, use QEMU with USB passthrough:
 
 ```bash
-# Find your USB-C device
-./scripts/find-usb-c-ports.sh
+# Identify your USB-C port
+sudo ./scripts/identify-usb-c-port.sh
 
 # Run VM with USB passthrough
 ./scripts/run-vm-tests.sh

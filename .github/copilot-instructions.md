@@ -76,7 +76,7 @@ Quick start actions for AI agents
 Helpful scripts and files to inspect
 - `scripts/build.sh` — builds the repo inside a container and will prefer Intel oneAPI compilers.
 - `scripts/host_build.sh` — host build script for non-Docker builds, with warnings if oneAPI is missing.
-- `scripts/find-usb-c-ports.sh` — script to identify Type-C ports and produce a docker client passthrough suggestion.
+- `scripts/identify-usb-c-port.sh` — interactive script to identify the target USB-C port using sysfs or libusb detection methods.
 - `scripts/run-vm-tests.sh` — lightweight QEMU-run example for VM-based hardware testing.
 - `.devcontainer/Dockerfile` and `.devcontainer/devcontainer.json` — devcontainer configuration and setup helper `setup-oneapi.sh`.
 
@@ -109,7 +109,7 @@ Questions for maintainers/PR reviewers
 - CI builds are executed inside the created devcontainer Docker image to provide a consistent environment and to allow on-demand oneAPI installation.
 
 ### Hardware Safety & Passthrough
-- Use the provided `scripts/find-usb-c-ports.sh` script to identify ports and learn the correct Docker `--device=/dev/bus/usb/BBB/DDD` path for a device. Always verify the device with `lsusb` and `dmesg` before passing it to a container.
+- Use the provided `scripts/identify-usb-c-port.sh` script to identify the target USB-C port. It auto-detects the best method (sysfs for host-to-host, libusb for gadget mode) and generates a config file with device information. Always verify the device with `lsusb` and `dmesg` before passing it to a container.
 - Hardware tests are explicitly gated with `TEST_HARDWARE`. They are not included in default PR builds; they require physical hardware and privileged runners.
 
 ### Using MCP servers (sequential-thinking and Memory)

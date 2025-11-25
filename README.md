@@ -157,9 +157,6 @@ For testing without two physical machines:
 # Identify USB-C port (auto-detects best method: sysfs or libusb)
 sudo ./scripts/identify-usb-c-port.sh
 
-# Find USB-C ports (Docker passthrough helper)
-./scripts/find-usb-c-ports.sh
-
 # Run VM-based tests
 ./scripts/run-vm-tests.sh
 ```
@@ -242,7 +239,7 @@ usb-c-soft-network/
 ├── scripts/                # Build and utility scripts
 │   ├── build.sh            # Container build script
 │   ├── host_build.sh       # Host build script
-│   ├── find-usb-c-ports.sh # USB device discovery
+│   ├── identify-usb-c-port.sh # Interactive port identification
 │   └── run-vm-tests.sh     # VM-based testing
 ├── src/                    # Main source code
 ├── CMakeLists.txt          # Main build configuration

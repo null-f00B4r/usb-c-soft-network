@@ -39,7 +39,7 @@ Tasks:
 Objective: Create safe tooling for hardware passthrough, and small tests that can be run with hardware connected.
 
 Tasks:
-- [x] Add `scripts/find-usb-c-ports.sh` to discover /sys/class/typec and `lsusb` outputs.
+- [x] ~~Add `scripts/find-usb-c-ports.sh` to discover /sys/class/typec and `lsusb` outputs.~~ (Removed: superseded by `identify-usb-c-port.sh`)
   - Success: Script lists candidate devices and prints a sample Docker passthrough command.
   - Test: Run the script on a machine with Type-C ports.
 - [x] Add hardware-integration tests that are gated behind `TEST_HARDWARE=ON` in CMake.
