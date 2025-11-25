@@ -21,26 +21,51 @@ echo "" >> "$DEBUG_FILE"
 echo "=== USB-C Port Identification Tool ==="
 echo ""
 
-# Check for root privileges
+# Check for root privileges (required for module loading and sysfs access)
 if [[ $EUID -ne 0 ]]; then
-    echo "⚠️  WARNING: Not running as root (sudo)" | tee -a "$DEBUG_FILE"
-    echo ""
-    echo "Root privileges are recommended for accurate port detection."
-    echo "Without root access:"
-    echo "  - Some sysfs attributes may be inaccessible"
-    echo "  - USB device enumeration may show limited information"
-    echo "  - Detection accuracy may be reduced"
-    echo ""
-    read -p "Continue in non-root mode (might not be accurate)? (y/N): " response
-    response=${response,,}
-    if [[ "$response" != "y" ]]; then
-        echo "Aborted. Please run with: sudo $0"
-        exit 1
-    fi
+    echo "❌ ERROR: Root privileges required" | tee -a "$DEBUG_FILE"
     echo "" | tee -a "$DEBUG_FILE"
-    echo "⚠️  User chose to continue without root privileges" >> "$DEBUG_FILE"
-    echo "" >> "$DEBUG_FILE"
+    echo "This tool requires root access to:" | tee -a "$DEBUG_FILE"
+    echo "  - Load Type-C kernel modules" | tee -a "$DEBUG_FILE"
+    echo "  - Access Type-C sysfs attributes in /sys/class/typec/" | tee -a "$DEBUG_FILE"
+    echo "  - Detect USB-C port connections accurately" | tee -a "$DEBUG_FILE"
+    echo "" | tee -a "$DEBUG_FILE"
+    echo "Please run with: sudo $0" | tee -a "$DEBUG_FILE"
+    exit 1
 fi
+
+# Check and load required Type-C kernel modules
+echo "Checking Type-C kernel module support..." | tee -a "$DEBUG_FILE"
+
+REQUIRED_MODULES=("typec" "typec_ucsi")
+MISSING_MODULES=()
+LOADED_MODULES=()
+
+for module in "${REQUIRED_MODULES[@]}"; do
+    if lsmod | grep -q "^${module} "; then
+        echo "  ✓ Module '$module' already loaded" | tee -a "$DEBUG_FILE"
+        LOADED_MODULES+=("$module")
+    elif modinfo "$module" &>/dev/null; then
+        echo "  → Loading module '$module'..." | tee -a "$DEBUG_FILE"
+        if modprobe "$module" 2>> "$DEBUG_FILE"; then
+            echo "  ✓ Module '$module' loaded successfully" | tee -a "$DEBUG_FILE"
+            LOADED_MODULES+=("$module")
+        else
+            echo "  ⚠️  Failed to load module '$module' (see debug log)" | tee -a "$DEBUG_FILE"
+        fi
+    else
+        echo "  ✗ Module '$module' not available in kernel" | tee -a "$DEBUG_FILE"
+        MISSING_MODULES+=("$module")
+    fi
+done
+
+# Give kernel time to initialize Type-C subsystem
+if [[ ${#LOADED_MODULES[@]} -gt 0 ]]; then
+    echo "Waiting for Type-C subsystem initialization..." | tee -a "$DEBUG_FILE"
+    sleep 2
+fi
+
+echo "" | tee -a "$DEBUG_FILE"
 
 # Determine which detection method to use
 USE_SYSFS=true
@@ -48,23 +73,61 @@ USE_LIBUSB=false
 
 if [[ ! -d "$TYPEC_PATH" ]]; then
     echo "⚠️  Type-C subsystem not found at $TYPEC_PATH" | tee -a "$DEBUG_FILE"
-    echo "Will fall back to libusb device enumeration method." | tee -a "$DEBUG_FILE"
     echo "" | tee -a "$DEBUG_FILE"
+    
+    if [[ ${#MISSING_MODULES[@]} -gt 0 ]]; then
+        echo "❌ ERROR: Required Type-C kernel modules not available:" | tee -a "$DEBUG_FILE"
+        for module in "${MISSING_MODULES[@]}"; do
+            echo "  - $module" | tee -a "$DEBUG_FILE"
+        done
+        echo "" | tee -a "$DEBUG_FILE"
+        echo "This system's kernel does not have Type-C support compiled." | tee -a "$DEBUG_FILE"
+        echo "" | tee -a "$DEBUG_FILE"
+        echo "Solutions:" | tee -a "$DEBUG_FILE"
+        echo "  1. Use a kernel with CONFIG_TYPEC=m or CONFIG_TYPEC=y" | tee -a "$DEBUG_FILE"
+        echo "  2. Recompile your kernel with Type-C support enabled" | tee -a "$DEBUG_FILE"
+        echo "  3. Use a distribution kernel (most modern kernels include it)" | tee -a "$DEBUG_FILE"
+        echo "" | tee -a "$DEBUG_FILE"
+        echo "For this project (host-to-host USB-C networking), USB-C sysfs" | tee -a "$DEBUG_FILE"
+        echo "is REQUIRED. USB gadget mode fallback is not supported." | tee -a "$DEBUG_FILE"
+        exit 1
+    else
+        echo "Type-C modules are loaded but sysfs not present." | tee -a "$DEBUG_FILE"
+        echo "This may indicate no USB-C controllers are detected." | tee -a "$DEBUG_FILE"
+        echo "" | tee -a "$DEBUG_FILE"
+        echo "Checking for USB-C hardware..." | tee -a "$DEBUG_FILE"
+        if lspci | grep -qi "usb.*type-c\|thunderbolt"; then
+            echo "  Found potential USB-C/Thunderbolt controller" | tee -a "$DEBUG_FILE"
+        else
+            echo "  No USB-C controllers detected by lspci" | tee -a "$DEBUG_FILE"
+        fi
+        echo "" | tee -a "$DEBUG_FILE"
+    fi
+    
     USE_SYSFS=false
     USE_LIBUSB=true
 elif [[ -z "$(ls -d "$TYPEC_PATH"/port[0-9]* 2>/dev/null)" ]]; then
     echo "⚠️  No Type-C ports found in $TYPEC_PATH" | tee -a "$DEBUG_FILE"
-    echo "Will fall back to libusb device enumeration method." | tee -a "$DEBUG_FILE"
+    echo "Type-C subsystem is loaded but no ports are detected." | tee -a "$DEBUG_FILE"
+    echo "This system may not have USB-C ports or the controller is not recognized." | tee -a "$DEBUG_FILE"
     echo "" | tee -a "$DEBUG_FILE"
     USE_SYSFS=false
     USE_LIBUSB=true
 fi
 
-# For libusb fallback, check if binary exists
-if [[ "$USE_LIBUSB" == true ]] && [[ ! -x "$USB_NET_BIN" ]]; then
-    echo "Error: usb-c-net binary not found at: $USB_NET_BIN" | tee -a "$DEBUG_FILE"
-    echo "Please build the project first: ./scripts/host_build.sh" | tee -a "$DEBUG_FILE"
-    exit 1
+# For libusb fallback, check if binary exists but warn about limitations
+if [[ "$USE_LIBUSB" == true ]]; then
+    echo "⚠️  WARNING: Falling back to libusb enumeration method" | tee -a "$DEBUG_FILE"
+    echo "" | tee -a "$DEBUG_FILE"
+    echo "This method requires USB gadget mode and is NOT the intended" | tee -a "$DEBUG_FILE"
+    echo "detection mechanism for this project (host-to-host connections)." | tee -a "$DEBUG_FILE"
+    echo "" | tee -a "$DEBUG_FILE"
+    
+    if [[ ! -x "$USB_NET_BIN" ]]; then
+        echo "Error: usb-c-net binary not found at: $USB_NET_BIN" | tee -a "$DEBUG_FILE"
+        echo "Please build the project first: ./scripts/host_build.sh" | tee -a "$DEBUG_FILE"
+        exit 1
+    fi
 fi
 
 cleanup() {

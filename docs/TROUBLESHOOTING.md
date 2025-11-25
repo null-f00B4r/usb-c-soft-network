@@ -1,28 +1,171 @@
 # Troubleshooting Guide
 
+## System Requirements
+
+### USB-C Type-C Kernel Support (REQUIRED)
+
+This project requires the Linux kernel Type-C subsystem for host-to-host USB-C networking.
+
+**Check if your system has Type-C support:**
+```bash
+# Check if Type-C modules are available
+modinfo typec
+modinfo typec_ucsi
+
+# Check kernel config (if available)
+zgrep CONFIG_TYPEC /proc/config.gz
+# Should show: CONFIG_TYPEC=m or CONFIG_TYPEC=y
+```
+
+**If Type-C modules are missing:**
+
+1. **Use a modern distribution kernel** (most include Type-C support):
+   - Debian/Ubuntu 20.04+
+   - Fedora 33+
+   - Arch Linux (latest)
+   - RHEL/CentOS 8+
+
+2. **Recompile kernel with Type-C support:**
+   ```
+   CONFIG_TYPEC=m
+   CONFIG_TYPEC_UCSI=m
+   CONFIG_UCSI_ACPI=m
+   ```
+
+3. **Load the modules:**
+   ```bash
+   sudo modprobe typec
+   sudo modprobe typec_ucsi
+   ```
+
+**Verify Type-C sysfs is available:**
+```bash
+ls /sys/class/typec/
+# Should show: port0  port1  (or similar)
+```
+
+**This project does NOT support:**
+- ❌ USB gadget mode fallback (not needed for host-to-host)
+- ❌ Charge-only cables (data lines required)
+- ❌ Systems without USB-C hardware
+- ❌ Kernels without CONFIG_TYPEC support
+
+---
+
 ## USB-C Port Detection Issues
+
+### Problem: Type-C subsystem not found
+
+**Symptoms:**
+```
+❌ ERROR: Required Type-C kernel modules not available:
+  - typec
+  - typec_ucsi
+```
+
+**Cause:**
+Your kernel doesn't have Type-C support compiled in.
+
+**Solution:**
+1. Check kernel version: `uname -r`
+2. Verify you're running a modern kernel (5.10+)
+3. Install distribution kernel if using custom kernel
+4. Or recompile with `CONFIG_TYPEC=m`
+
+---
 
 ### Problem: Script requires sudo/root privileges
 
 **Symptoms:**
 ```
-⚠️  WARNING: Not running as root (sudo)
-Continue in non-root mode (might not be accurate)? (y/N):
+❌ ERROR: Root privileges required
+This tool requires root access to:
+  - Load Type-C kernel modules
+  - Access Type-C sysfs attributes in /sys/class/typec/
 ```
 
 **Cause:**
 The script needs root access to:
+- Load kernel modules (`modprobe`)
 - Read Type-C sysfs attributes in `/sys/class/typec/`
-- Enumerate USB devices via libusb
-- Access hardware information accurately
+- Detect USB-C port connections accurately
 
 **Solution:**
-Run with sudo:
+Always run with sudo:
 ```bash
 sudo ./scripts/identify-usb-c-port.sh
 ```
 
-If you choose to continue without root, detection may be inaccurate or fail.
+Root access is mandatory for proper Type-C detection.
+
+---
+
+### Problem: Type-C modules loaded but no ports detected
+
+**Symptoms:**
+```bash
+$ ls /sys/class/typec/
+# Empty directory - no port0, port1, etc.
+
+$ lspci | grep -i usb
+00:14.0 USB controller: Intel Corporation Raptor Lake USB 3.2 Gen 2x2 (20 Gb/s) XHCI Host Controller
+```
+
+**Cause:**
+The system has USB-C physical ports and kernel Type-C support, but the ports are not managed by the Linux Type-C subsystem. This occurs when:
+
+1. **No UCSI Interface**: BIOS/UEFI doesn't expose USB Type-C Connector System Software Interface (UCSI) via ACPI
+2. **Vendor-Specific Management**: USB-C controller uses proprietary firmware/management
+3. **Missing Platform Drivers**: Intel/AMD chipset-specific drivers not loaded
+4. **Not True Type-C**: Ports are USB 3.x with Type-C connector shape but no Type-C protocol support
+
+**Verification:**
+```bash
+# Check if UCSI ACPI device exists
+sudo dmesg | grep -i ucsi
+# If empty, no UCSI interface found
+
+# Try loading UCSI ACPI driver
+sudo modprobe ucsi_acpi
+sudo dmesg | tail -20
+# Look for "ucsi_acpi" messages
+
+# Check ACPI tables for UCSI
+sudo acpidump | grep -i usbc
+```
+
+**Solution:**
+
+This is a **hardware/firmware limitation**. The project **cannot function** without `/sys/class/typec/portX` entries.
+
+**Options:**
+
+1. **Update BIOS/UEFI**: Check manufacturer's website for firmware updates that may add UCSI support
+
+2. **Enable in BIOS**: Some systems have USB-C/Thunderbolt settings that must be enabled:
+   - Boot into BIOS/UEFI setup
+   - Look for "USB Configuration", "Thunderbolt", or "Type-C" settings
+   - Enable "UCSI Support", "Type-C Port Management", etc.
+
+3. **Use Different Hardware**: Test on a system with confirmed Type-C subsystem support:
+   - Modern laptops with Thunderbolt 3/4
+   - Systems with discrete USB-C controllers
+   - Devices with Type-C DisplayPort alternate mode
+
+4. **Check Kernel Support**: Ensure you're running a recent kernel (5.15+) with full UCSI support
+
+**This project explicitly does NOT support:**
+- USB gadget mode as workaround (by design - see README)
+- Systems without kernel Type-C port enumeration
+- Proprietary USB-C management interfaces
+
+**Why this is required:**
+
+Host-to-host USB-C networking (per project design) requires detecting cable connection/disconnection via Type-C sysfs (`/sys/class/typec/portX/data_role`, `/sys/class/typec/portX-partner/`, etc.). Without this, the project cannot:
+- Detect when a cable is connected
+- Determine cable orientation
+- Negotiate data roles (DFP/UFP)
+- Detect partner device capabilities
 
 ---
 

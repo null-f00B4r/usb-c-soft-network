@@ -8,11 +8,38 @@ A software-based implementation of a USB type C network interface, allowing devi
 - **Software-based**: No need for specialized hardware, making it accessible for a wide range of devices.
 - **Hardware Requirements** (or lack thereof): You don't need a fancy USB network adapter or special cables, just a regular USB-C cable and two devices with USB-C ports. 
     + Well, you don't accidentally need two devices, if you want to send data to yourself ... .
+    + **IMPORTANT**: Requires Linux kernel Type-C subsystem support (`CONFIG_TYPEC`, kernel 5.10+)
 - **Flexible Protocols**: Supports file transfer and implements a simple IP over USB-C protocol.
 - **High Performance**: Optimized for low latency and high throughput to ensure efficient data transfer.
 - **Platform**: Linux, what else?
     + For use with other operating systems -> **Install Linux**
 - **Message of the Day**: "Have a nice day!"
+
+## System Requirements
+
+Before building, verify your system has the necessary USB-C support:
+
+```bash
+# Quick check (automated)
+./scripts/check-system-requirements.sh
+
+# Or check manually
+sudo modprobe typec
+sudo modprobe typec_ucsi
+ls /sys/class/typec/  # Should show: port0, port1, etc.
+```
+
+**Required:**
+- Linux kernel 5.10+ with Type-C subsystem enabled:
+  - `CONFIG_TYPEC=m` or `CONFIG_TYPEC=y`
+  - `CONFIG_TYPEC_UCSI=m` (for most systems)
+- USB-C hardware port(s) with data support
+- Data-capable USB-C cable (not charge-only)
+- Root/sudo privileges for hardware access
+
+**Note:** Most modern distribution kernels (Debian 11+, Ubuntu 20.04+, Fedora 33+, Arch) include Type-C support by default.
+
+If your system lacks Type-C modules, see [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md#system-requirements).
 
 ## Security
 
