@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/q/usb-c-soft-network/build/cmake_install.cmake",
-		"/home/q/usb-c-soft-network/build/examples/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

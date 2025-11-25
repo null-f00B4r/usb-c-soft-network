@@ -1,1 +1,0 @@
-/opt/intel/oneapi/compiler/2025.3/bin/icx -O2 -g -DNDEBUG -Wl,--dependency-file=CMakeFiles/usb-c-net.dir/link.d "CMakeFiles/usb-c-net.dir/src/usb_net_core.c.o" -o usb-c-net  -lusb-1.0

@@ -1,1 +1,0 @@
-/opt/intel/oneapi/compiler/2025.3/bin/icx -O2 -g -DNDEBUG -Wl,--dependency-file=CMakeFiles/dummy.dir/link.d CMakeFiles/dummy.dir/src/main.c.o -o dummy
