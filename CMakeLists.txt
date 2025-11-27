@@ -31,9 +31,12 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(LIBUSB REQUIRED libusb-1.0)
 
 # Main USB-C network core with direct hardware access
-add_executable(usb-c-net src/usb_net_core.c)
+add_executable(usb-c-net 
+    src/usb_net_core.c
+    src/usb_raw_comm.c
+)
 target_link_libraries(usb-c-net ${LIBUSB_LIBRARIES})
-target_include_directories(usb-c-net PRIVATE ${LIBUSB_INCLUDE_DIRS})
+target_include_directories(usb-c-net PRIVATE ${LIBUSB_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/src)
 target_compile_definitions(usb-c-net PRIVATE TEST_HARDWARE=$<BOOL:${TEST_HARDWARE}>)
 
 install(TARGETS usb-c-net DESTINATION bin)

@@ -4,7 +4,12 @@ set -euo pipefail
 # USB-C Port Identification Tool
 # Supports two detection methods:
 #   1. Type-C sysfs (default) - works for host-to-host connections
-#   2. libusb device enumeration (fallback) - requires gadget mode
+#   2. libusb device enumeration (fallback) - requires gadget mode ONLY FOR DETECTION
+#
+# IMPORTANT: This script identifies which USB-C port to use.
+# The detection methods (especially libusb) may require gadget-mode devices,
+# but the actual USB-C networking implementation does NOT require gadget mode.
+# See docs/how-to-select-port.md for clarification.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -76,21 +81,19 @@ if [[ ! -d "$TYPEC_PATH" ]]; then
     echo "" | tee -a "$DEBUG_FILE"
     
     if [[ ${#MISSING_MODULES[@]} -gt 0 ]]; then
-        echo "❌ ERROR: Required Type-C kernel modules not available:" | tee -a "$DEBUG_FILE"
+        echo "⚠️  WARNING: Type-C kernel modules not available:" | tee -a "$DEBUG_FILE"
         for module in "${MISSING_MODULES[@]}"; do
             echo "  - $module" | tee -a "$DEBUG_FILE"
         done
         echo "" | tee -a "$DEBUG_FILE"
         echo "This system's kernel does not have Type-C support compiled." | tee -a "$DEBUG_FILE"
         echo "" | tee -a "$DEBUG_FILE"
-        echo "Solutions:" | tee -a "$DEBUG_FILE"
-        echo "  1. Use a kernel with CONFIG_TYPEC=m or CONFIG_TYPEC=y" | tee -a "$DEBUG_FILE"
-        echo "  2. Recompile your kernel with Type-C support enabled" | tee -a "$DEBUG_FILE"
-        echo "  3. Use a distribution kernel (most modern kernels include it)" | tee -a "$DEBUG_FILE"
+        echo "Automatic sysfs detection is not possible, but you can:" | tee -a "$DEBUG_FILE"
+        echo "  1. Manually configure the USB-C port (recommended)" | tee -a "$DEBUG_FILE"
+        echo "  2. Use a kernel with CONFIG_TYPEC=m or CONFIG_TYPEC=y" | tee -a "$DEBUG_FILE"
+        echo "  3. Try libusb enumeration as a fallback" | tee -a "$DEBUG_FILE"
         echo "" | tee -a "$DEBUG_FILE"
-        echo "For this project (host-to-host USB-C networking), USB-C sysfs" | tee -a "$DEBUG_FILE"
-        echo "is REQUIRED. USB gadget mode fallback is not supported." | tee -a "$DEBUG_FILE"
-        exit 1
+        offer_manual_configuration
     else
         echo "Type-C modules are loaded but sysfs not present." | tee -a "$DEBUG_FILE"
         echo "This may indicate no USB-C controllers are detected." | tee -a "$DEBUG_FILE"
@@ -119,8 +122,11 @@ fi
 if [[ "$USE_LIBUSB" == true ]]; then
     echo "⚠️  WARNING: Falling back to libusb enumeration method" | tee -a "$DEBUG_FILE"
     echo "" | tee -a "$DEBUG_FILE"
-    echo "This method requires USB gadget mode and is NOT the intended" | tee -a "$DEBUG_FILE"
-    echo "detection mechanism for this project (host-to-host connections)." | tee -a "$DEBUG_FILE"
+    echo "This DETECTION method requires USB gadget mode for the test device." | tee -a "$DEBUG_FILE"
+    echo "" | tee -a "$DEBUG_FILE"
+    echo "NOTE: This is ONLY for port identification. The actual USB-C networking" | tee -a "$DEBUG_FILE"
+    echo "implementation does NOT require gadget mode. This is a detection-only" | tee -a "$DEBUG_FILE"
+    echo "limitation. See docs/how-to-select-port.md for clarification." | tee -a "$DEBUG_FILE"
     echo "" | tee -a "$DEBUG_FILE"
     
     if [[ ! -x "$USB_NET_BIN" ]]; then
@@ -134,6 +140,28 @@ cleanup() {
     rm -rf "$TEMP_DIR" 2>/dev/null || true
 }
 trap cleanup EXIT
+
+#############################################################################
+# Manual Configuration Helper
+#############################################################################
+
+offer_manual_configuration() {
+    echo ""
+    echo "You can manually configure your USB-C port instead:"
+    echo ""
+    echo "1. Copy the example configuration:"
+    echo "   cp target_usb_c_port.env.example target_usb_c_port.env"
+    echo ""
+    echo "2. Edit the file and follow the instructions:"
+    echo "   nano target_usb_c_port.env"
+    echo ""
+    echo "3. For detailed guidance on finding your port, see:"
+    echo "   docs/how-to-select-port.md"
+    echo ""
+    echo "Debug information saved to: $DEBUG_FILE"
+    echo ""
+    exit 1
+}
 
 #############################################################################
 # METHOD 1: Type-C sysfs detection (default, works for host-to-host)
@@ -364,8 +392,18 @@ EOF
 detect_via_libusb() {
     echo "=== Using libusb Device Enumeration Method ===" | tee -a "$DEBUG_FILE"
     echo ""
-    echo "This method detects USB device enumeration changes."
-    echo "It requires one end to be in USB gadget/device mode."
+    echo "⚠️  DETECTION METHOD ONLY: This step requires a gadget-mode device."
+    echo ""
+    echo "This method detects USB device enumeration changes by comparing"
+    echo "the USB device list before and after connection."
+    echo ""
+    echo "For detection, you can use:"
+    echo "  • Android phone or tablet (native USB gadget support)"
+    echo "  • Another Linux host configured as USB gadget"
+    echo "  • USB device with gadget-mode capabilities"
+    echo ""
+    echo "IMPORTANT: This gadget mode is ONLY needed for this detection step."
+    echo "The actual USB-C networking does NOT require gadget mode."
     echo ""
 
     TEMP_DIR=$(mktemp -d)
@@ -373,7 +411,12 @@ detect_via_libusb() {
     AFTER_LIST="${TEMP_DIR}/after.txt"
 
     # Step 1: Ask user to connect device
-    echo "Step 1: Please connect a device to the target USB-C port."
+    echo "Step 1: Connect a gadget-mode device to the target USB-C port."
+    echo ""
+    echo "Recommended test devices:"
+    echo "  • Smartphone or tablet (Android, iOS with proper adapter)"
+    echo "  • Another Linux host with g_ether module loaded"
+    echo "  • Any device with USB gadget/device-mode support"
     echo ""
     read -p "Continue, device connected (Y/n): " response
     response=${response,,}
@@ -401,7 +444,10 @@ detect_via_libusb() {
 
     # Step 2: Ask user to disconnect device
     echo ""
-    echo "Step 2: Please disconnect the USB-C cable now."
+    echo "Step 2: Disconnect the gadget-mode device from the USB-C port."
+    echo ""
+    echo "This is only to detect which port changed state (for identification)."
+    echo "The actual USB-C networking will not require this device."
     echo ""
     read -p "Continue, device disconnected (Y/n): " response
     response=${response,,}
@@ -460,15 +506,57 @@ detect_via_libusb() {
     VENDOR_PRODUCT=$(echo "$IDENTIFIED_PORT" | awk '{print $4}')
     DESCRIPTION=$(echo "$IDENTIFIED_PORT" | awk '{$1=$2=$3=$4=$5=""; print $0}' | sed 's/^[ \t]*//')
 
+    # Find the USB port path (sysfs) - this stays constant regardless of device number
+    # The port path is like "1-4" or "2-1.3" and identifies the physical port
+    USB_PORT_PATH=""
+    for dev in /sys/bus/usb/devices/[0-9]*-[0-9]*; do
+        if [[ -f "$dev/busnum" && -f "$dev/devnum" ]]; then
+            dev_bus=$(cat "$dev/busnum" 2>/dev/null)
+            dev_num=$(cat "$dev/devnum" 2>/dev/null)
+            # Match bus and device number (strip leading zeros for comparison)
+            if [[ "$((10#$BUS))" == "$dev_bus" && "$((10#$DEVICE))" == "$dev_num" ]]; then
+                USB_PORT_PATH=$(basename "$dev")
+                echo "Found USB port path: $USB_PORT_PATH" >> "$DEBUG_FILE"
+                break
+            fi
+        fi
+    done
+
+    # If we couldn't find it with device connected, try to identify from before list
+    if [[ -z "$USB_PORT_PATH" ]]; then
+        echo "Warning: Could not determine USB port path (device may have been disconnected too fast)" | tee -a "$DEBUG_FILE"
+        echo "The USB port path is needed to identify the physical port consistently." | tee -a "$DEBUG_FILE"
+        echo "" | tee -a "$DEBUG_FILE"
+        
+        # Try to find it from the before state by looking at what's now missing
+        echo "Attempting to find port path from sysfs device list..." >> "$DEBUG_FILE"
+        for dev in /sys/bus/usb/devices/[0-9]*-[0-9]*; do
+            if [[ -f "$dev/busnum" ]]; then
+                dev_bus=$(cat "$dev/busnum" 2>/dev/null)
+                if [[ "$((10#$BUS))" == "$dev_bus" ]]; then
+                    echo "  Candidate port: $(basename $dev) on bus $dev_bus" >> "$DEBUG_FILE"
+                fi
+            fi
+        done
+    fi
+
     echo "=== Identified USB-C Port ==="
     echo ""
     echo "The target USB-C port is:"
-    echo "  Bus:     $BUS"
-    echo "  Device:  $DEVICE"
-    echo "  Speed:   ${SPEED} Mbps"
-    echo "  ID:      $VENDOR_PRODUCT"
-    echo "  Info:    $DESCRIPTION"
+    echo "  Bus:       $BUS"
+    echo "  Device:    $DEVICE (at time of detection)"
+    echo "  Port Path: ${USB_PORT_PATH:-unknown}"
+    echo "  Speed:     ${SPEED} Mbps"
+    echo "  ID:        $VENDOR_PRODUCT"
+    echo "  Info:      $DESCRIPTION"
     echo ""
+    
+    if [[ -z "$USB_PORT_PATH" ]]; then
+        echo "⚠️  WARNING: USB port path could not be determined."
+        echo "   You may need to run identification again with the device connected longer,"
+        echo "   or manually set USB_PORT_PATH in the config file."
+        echo ""
+    fi
 
     # Ask for confirmation
     read -p "Is this correct? (Y/n): " response
@@ -486,20 +574,29 @@ detect_via_libusb() {
 # Generated by identify-usb-c-port.sh (libusb method) on $(date)
 #
 # This file identifies the USB-C port to use for networking
+# USB_PORT_PATH is the key - it identifies the physical port location
 
 DETECTION_METHOD=libusb
 USB_BUS=$BUS
-USB_DEVICE=$DEVICE
+USB_PORT_PATH=$USB_PORT_PATH
 USB_SPEED=$SPEED
 USB_VENDOR_PRODUCT=$VENDOR_PRODUCT
 USB_DESCRIPTION="$DESCRIPTION"
 
-# Full device path for Docker passthrough
-USB_DEVICE_PATH=/dev/bus/usb/$BUS/$DEVICE
+# Note: USB_DEVICE number changes with each connection
+# Use USB_PORT_PATH to identify the physical port consistently
+# USB_DEVICE=$DEVICE (at time of detection, may change)
+
+# Full device path pattern for this port
+# Devices connected to this port will appear at: /sys/bus/usb/devices/$USB_PORT_PATH
 
 # For use in scripts:
 # source $OUTPUT_FILE
-# docker run --device=\$USB_DEVICE_PATH ...
+# Find current device on this port:
+#   if [[ -d /sys/bus/usb/devices/\$USB_PORT_PATH ]]; then
+#     devnum=\$(cat /sys/bus/usb/devices/\$USB_PORT_PATH/devnum)
+#     echo "Device \$devnum on port \$USB_PORT_PATH"
+#   fi
 EOF
 
     echo ""
@@ -533,20 +630,15 @@ if [[ "$USE_SYSFS" == true ]]; then
 fi
 
 if [[ "$USE_LIBUSB" == true ]]; then
-    detect_via_libusb
-    exit $?
+    if detect_via_libusb; then
+        exit 0
+    fi
 fi
 
-# Should never reach here
-echo "Error: No detection method available" | tee -a "$DEBUG_FILE"
-exit 1
-echo "========================================" | tee -a "$DEBUG_FILE"
-echo "DEBUG PAUSE: Current state saved to: $DEBUG_FILE" | tee -a "$DEBUG_FILE"
-echo "Please disconnect the USB-C cable now." | tee -a "$DEBUG_FILE"
-echo "Press ENTER when ready to rescan..." | tee -a "$DEBUG_FILE"
-read -p "" pause
-echo "Resuming scan..." | tee -a "$DEBUG_FILE"
+# All automatic detection methods failed - offer manual configuration
+echo "⚠️  Automatic detection failed on all methods." | tee -a "$DEBUG_FILE"
 echo "" | tee -a "$DEBUG_FILE"
+offer_manual_configuration
 
 # Step 2: Ask user to disconnect device
 echo ""
